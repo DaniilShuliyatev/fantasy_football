@@ -15,6 +15,12 @@ export const theme = createTheme({
     text: {
       secondary: "#0000008A",
     },
+    background: {
+      paper: '#FAFAFA'
+    },
+    customColors: {
+      main: "#EEEEEE",
+      contrastText: "#0B79D0"
+    }
   },
-  spacing: (factor: number) => `${factor}px`,
 });

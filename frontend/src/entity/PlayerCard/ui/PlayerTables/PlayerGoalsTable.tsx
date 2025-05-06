@@ -1,15 +1,15 @@
 import { Paper, Table, TableContainer, TableRow } from "@mui/material";
-import { teamMockedData } from "../../model/teamMockedData";
+import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
   CustomTableHead,
-} from "./TeamCardStatistics.style";
+} from "../PlayerCard.style";
 import type { FC } from "react";
 
-export const TeamStatistics: FC = () => {
+export const PlayerGoalsTable: FC = () => {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
       <Table aria-label="simple table">
         <CustomTableHead>
           <TableRow
@@ -17,11 +17,10 @@ export const TeamStatistics: FC = () => {
               maxHeight: "36px",
             }}
           >
-            <CustomTableCell>Played games</CustomTableCell>
-            <CustomTableCell align="left">Wins</CustomTableCell>
-            <CustomTableCell align="left">Draws</CustomTableCell>
-            <CustomTableCell align="left">Losess</CustomTableCell>
-            <CustomTableCell align="left">Goals</CustomTableCell>
+            <CustomTableCell>Total</CustomTableCell>
+            <CustomTableCell align="left">Conceded</CustomTableCell>
+            <CustomTableCell align="left">Assists</CustomTableCell>
+            <CustomTableCell align="left">Saves</CustomTableCell>
           </TableRow>
         </CustomTableHead>
         <CustomTableBody>
@@ -32,19 +31,16 @@ export const TeamStatistics: FC = () => {
             }}
           >
             <CustomTableCell align="left">
-              {teamMockedData.stats.played}
+              {playerMockData.goals.total}
             </CustomTableCell>
             <CustomTableCell align="left">
-              {teamMockedData.stats.wins}
+              {playerMockData.goals.conceded}
             </CustomTableCell>
             <CustomTableCell align="left">
-              {teamMockedData.stats.draws}
+              {playerMockData.goals.assists}
             </CustomTableCell>
             <CustomTableCell align="left">
-              {teamMockedData.stats.loses}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {teamMockedData.stats.goals}
+              {playerMockData.goals.saves}
             </CustomTableCell>
           </TableRow>
         </CustomTableBody>

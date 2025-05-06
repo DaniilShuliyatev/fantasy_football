@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import styled from "styled-components";
-import { theme } from "../../../app/providers/theme/theme";
+import { theme } from "../../app";
 
 
 export const PageErrorWrapper = styled(Box)(() => ({

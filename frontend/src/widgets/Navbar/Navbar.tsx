@@ -1,9 +1,14 @@
-import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
-import { Box, Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { type FC, memo, useState } from "react";
 import { Link } from "react-router";
-import { RoutePaths } from "../../../shared/config/routeConfig/routeConfig";
-import { Header, NavItem, Navigation } from "./Navbar.style";
+import { RoutePaths } from "../../shared";
+import {
+  CustomIcon,
+  Header,
+  LogoutButton,
+  NavItem,
+  Navigation,
+} from "./Navbar.style";
 
 export const Navbar: FC = memo(() => {
   const [statisticPage, setStatisticPage] = useState(true);
@@ -23,22 +28,10 @@ export const Navbar: FC = memo(() => {
     <>
       <Header>
         <Typography component={"h1"}>Fantasy league</Typography>
-        <Button
-          variant="contained"
-          sx={{
-            fontSize: "14px",
-            fontWeight: 500,
-          }}
-        >
+        <LogoutButton variant="contained">
           LOGOUT
-          <ExitToAppOutlinedIcon
-            sx={{
-              width: "15px",
-              height: "15px",
-              marginLeft: "8px",
-            }}
-          />
-        </Button>
+          <CustomIcon />
+        </LogoutButton>
       </Header>
       <Navigation>
         <NavItem onClick={showStatPage} isActive={statisticPage}>

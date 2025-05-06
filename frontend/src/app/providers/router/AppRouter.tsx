@@ -1,10 +1,7 @@
 import { Skeleton } from "@mui/material";
 import { Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router";
-import {
-  type AppRoutesProps,
-  routeConfig,
-} from "../../../../shared/config/routeConfig/routeConfig";
+import { type AppRoutesProps, routeConfig } from "../../../shared";
 import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter = () => {

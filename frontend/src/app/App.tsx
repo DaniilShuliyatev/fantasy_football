@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { Navbar } from "../widgets/Navbar";
+import { Navbar } from "../widgets";
 import { AppRouter } from "./providers/router";
 
 function App() {

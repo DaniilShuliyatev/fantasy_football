@@ -21,11 +21,11 @@ const menuProps = {
   },
 };
 
-interface DropdownMenuProps {
+type DropdownMenuProps = {
   width: string;
   Labels: Label;
   filteringValues: () => number[] | string[];
-}
+};
 
 export const CustomDropdownMenu: FC<DropdownMenuProps> = (props) => {
   const { width, Labels, filteringValues } = props;

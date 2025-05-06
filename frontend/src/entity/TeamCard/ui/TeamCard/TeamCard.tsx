@@ -1,21 +1,21 @@
-import { Avatar, Box, Button, Card } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { teamMockedData } from "../../model/teamMockedData";
 import {
   ContentWrapper,
   CountryBlock,
   CustomCard,
   CustomCardContent,
+  CustomCountryAvatar,
   MainText,
   PrimaryText,
 } from "./TeamCard.style";
 import type { FC } from "react";
 
-interface TeamCardProps {
+type TeamCardProps = {
   number: number;
-}
+};
 
-export const TeamCard: FC<TeamCardProps> = (props) => {
-  const { number } = props;
+export const TeamCard: FC<TeamCardProps> = ({ number }) => {
   return (
     <CustomCard variant="outlined">
       <CustomCardContent
@@ -29,10 +29,7 @@ export const TeamCard: FC<TeamCardProps> = (props) => {
               {number}. {teamMockedData.team.name} F.C.
             </MainText>
             <CountryBlock>
-              <Avatar
-                sx={{ width: "18px", height: "18px", marginRight: "5px" }}
-                src={teamMockedData.league.country.flag}
-              />
+              <CustomCountryAvatar src={teamMockedData.league.country.flag} />
               {teamMockedData.league.country.name}
             </CountryBlock>
           </ContentWrapper>

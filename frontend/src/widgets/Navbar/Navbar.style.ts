@@ -1,9 +1,10 @@
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 
-// Стили для Header
+
 export const Header = styled("header")(() => ({
-  height: "70px", // Использование темы для управления высотой
+  height: "70px",
   backgroundColor: "#212121",
   color: "#fff",
   display: "flex",
@@ -41,3 +42,18 @@ export const NavItem = styled(Button)<NavItemProps>(({ theme, isActive }) => ({
   width: "220px",
   height: "100%",
 }));
+
+export const LogoutButton = styled(Button)(() => ({
+  '&&': {
+    fontSize: "14px",
+    fontWeight: 500,
+  }
+}))
+
+export const CustomIcon = styled(ExitToAppOutlinedIcon)(() => ({
+  '&&': {
+    width: "15px",
+    height: "15px",
+    marginLeft: "8px",
+  }
+}))

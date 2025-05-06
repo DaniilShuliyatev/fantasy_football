@@ -1,5 +1,5 @@
 import type { RouteProps } from "react-router";
-import { StatisticsPage } from "../../../pages/statisticsPage";
+import { StatisticsPage } from "../../../pages";
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

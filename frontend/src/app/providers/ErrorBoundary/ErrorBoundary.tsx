@@ -1,13 +1,13 @@
 import React, { type ReactNode, type ErrorInfo, Suspense } from "react";
-import { PageError } from "../../../../widgets/PageError";
+import { PageError } from "../../../widgets";
 
-interface Props {
+type Props = {
   children: ReactNode;
-}
+};
 
-interface State {
+type State = {
   hasError: boolean;
-}
+};
 
 export class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {

@@ -1,6 +1,14 @@
-import { Box, Card, TableCell, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Card,
+  TableBody,
+  TableCell,
+  TableHead,
+  Typography,
+} from "@mui/material";
 import styled from "styled-components";
-import { theme } from "../../../app/providers/theme/theme";
+import { theme } from "../../../app";
 
 export const IconBlock = styled(Box)(() => ({
   display: "flex",
@@ -8,31 +16,31 @@ export const IconBlock = styled(Box)(() => ({
 }));
 
 export const SecondaryText = styled(Typography)(() => ({
-  '&&': {
+  "&&": {
     color: theme.palette.text.secondary,
     fontSize: "14px",
-  }
+  },
 }));
 
 export const MainText = styled(Typography)(() => ({
-  '&&': {
+  "&&": {
     fontSize: "16px",
     lineHeight: "24px",
-  }
+  },
 }));
 
 export const PrimaryText = styled(Typography)(() => ({
-  '&&': {
+  "&&": {
     fontSize: "14px",
     lineHeight: "20px",
-    color: "#0B79D0",
-  }
+    color: theme.palette.customColors.contrastText,
+  },
 }));
 
 export const LeagueBlock = styled(Box)(() => ({
   display: "flex",
   fontSize: "13px",
-  backgroundColor: "#EEEEEE",
+  backgroundColor: theme.palette.customColors.main,
   justifySelf: "end",
   borderRadius: "16px",
   padding: "0 8px",
@@ -40,7 +48,7 @@ export const LeagueBlock = styled(Box)(() => ({
   width: "fit-content",
 }));
 
-export const CustomTabelCell = styled(TableCell)(() => ({
+export const CustomTableCell = styled(TableCell)(() => ({
   "&&": {
     padding: "6px 16px",
     fontSize: "14px",
@@ -48,13 +56,41 @@ export const CustomTabelCell = styled(TableCell)(() => ({
   },
 }));
 
+export const CustomTableBody = styled(TableBody)(() => ({
+  "&&": {
+    backgroundColor: "#ffff",
+  },
+}));
+
+export const CustomTableHead = styled(TableHead)(() => ({
+  "&&": {
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
 export const CustomCard = styled(Card)(() => ({
-  marginTop: "16px",
-  backgroundColor: "#FAFAFA",
-  maxWidth: "928px",
-}))
+  "&&": {
+    marginTop: "16px",
+    backgroundColor: theme.palette.background.paper,
+    maxWidth: "928px",
+  },
+}));
 
 export const CardHeader = styled(Box)(() => ({
   display: "flex",
-  justifyContent: "space-between"
-}))
+  justifyContent: "space-between",
+}));
+
+export const CustomLeagueAvatar = styled(Avatar)(() => ({
+  "&&": {
+    width: "18px",
+    height: "18px",
+    marginRight: "5px",
+  },
+}));
+
+export const CustomPlayerAvatar = styled(Avatar)(() => ({
+  "&&": {
+    borderRadius: "4px",
+  },
+}));

@@ -1,19 +1,23 @@
-import type { JSX } from "react";
 import { Navigate, useLocation } from "react-router";
-import { RoutePaths } from "../../../../shared/config/routeConfig/routeConfig";
+import { AppRoutes, RoutePaths } from "../../../shared";
+import type { FC } from "react";
 
-export function RequireAuth({ children }: { children: JSX.Element }) {
+type RequireAuthProps = {
+  children: React.ReactNode;
+};
+
+export const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
   const auth = /* useSelector(getUserAuthData) */ true;
   const location = useLocation();
 
   if (!auth) {
     return (
       <Navigate
-        to={RoutePaths["statistics"]}
+        to={RoutePaths[AppRoutes.STATISTICS]}
         state={{ from: location }}
         replace
       />
     );
   }
   return children;
-}
+};

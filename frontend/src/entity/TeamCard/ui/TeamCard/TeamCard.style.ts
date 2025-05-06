@@ -1,12 +1,12 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
 import styled from "styled-components";
-import { theme } from "../../../../app/providers/theme/theme";
+import { theme } from "../../../../app";
 
 export const PrimaryText = styled(Typography)(() => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
-    color: "#0B79D0",
+    color: theme.palette.customColors.contrastText,
   },
 }));
 
@@ -29,7 +29,7 @@ export const MainText = styled(Typography)(() => ({
 export const CountryBlock = styled(Box)(() => ({
   display: "flex",
   fontSize: "14px",
-  backgroundColor: "#EEEEEE",
+  backgroundColor: theme.palette.customColors.main,
   borderRadius: "16px",
   padding: "0 8px",
   height: "fit-content",
@@ -44,10 +44,18 @@ export const CustomCardContent = styled(CardContent)(() => ({
 
 export const CustomCard = styled(Card)(() => ({
   marginTop: "16px",
-  backgroundColor: "#FAFAFA",
+  backgroundColor: theme.palette.background.paper,
   maxWidth: "536px",
 }))
 
 export const ContentWrapper = styled(Box)(() => ({
   display: 'flex'
+}))
+
+export const CustomCountryAvatar = styled(Avatar)(() => ({
+  '&&': {
+    width: "18px",
+    height: "18px",
+    marginRight: "5px"
+  }
 }))

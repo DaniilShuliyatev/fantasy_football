@@ -1,2 +1,2 @@
-export { TeamCardsList } from "./ui/TeamCardsList/TeamCardsList";
 export { TeamCardStatistics } from "./ui/TeamCardStatistics/TeamCardStatistics";
+export { TeamCard } from './ui/TeamCard/TeamCard';

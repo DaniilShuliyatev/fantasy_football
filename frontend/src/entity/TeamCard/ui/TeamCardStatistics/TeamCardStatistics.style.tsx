@@ -1,6 +1,13 @@
-import { Box, TableCell, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  TableBody,
+  TableCell,
+  TableHead,
+  Typography,
+} from "@mui/material";
 import styled from "styled-components";
-import { theme } from "../../../../app/providers/theme/theme";
+import { theme } from "../../../../app";
 
 export const IconBlock = styled(Box)(() => ({
   display: "flex",
@@ -24,7 +31,7 @@ export const MainText = styled(Typography)(() => ({
 export const LeagueBlock = styled(Box)(() => ({
   display: "flex",
   fontSize: "13px",
-  backgroundColor: "#EEEEEE",
+  backgroundColor: theme.palette.customColors.main,
   borderRadius: "16px",
   padding: "0 8px",
   height: "fit-content",
@@ -33,7 +40,7 @@ export const LeagueBlock = styled(Box)(() => ({
 
 export const CardWrapper = styled(Box)(() => ({
   padding: "16px",
-  backgroundColor: "#FAFAFA",
+  backgroundColor: theme.palette.background.paper,
   width: "536px",
   marginTop: "16px",
   display: "flex",
@@ -46,7 +53,7 @@ export const PrimaryText = styled(Typography)(() => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
-    color: "#0B79D0",
+    color: theme.palette.customColors.contrastText,
   },
 }));
 
@@ -57,11 +64,30 @@ export const VenueBlockWrapper = styled(Box)(() => ({
   paddingBottom: "16px",
 }));
 
-export const CustomTabelCell = styled(TableCell)(() => ({
+export const CustomTableCell = styled(TableCell)(() => ({
   "&&": {
     padding: "6px 16px",
     fontSize: "14px",
     lineHeight: "24px",
+  },
+}));
+
+export const CustomTableHead = styled(TableHead)(() => ({
+  "&&": {
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+export const CustomTableBody = styled(TableBody)(() => ({
+  "&&": {
+    backgroundColor: "#ffff",
+  },
+}));
+
+export const CustomLeagueAvatar = styled(Avatar)(() => ({
+  "&&": {
+    width: "18px",
+    height: "18px",
+    marginRight: "5px",
   },
 }));
 

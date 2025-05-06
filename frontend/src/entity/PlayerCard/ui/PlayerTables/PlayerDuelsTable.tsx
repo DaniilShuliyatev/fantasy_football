@@ -1,48 +1,41 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Paper, Table, TableContainer, TableRow } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
-import { CustomTabelCell } from "../PlayerCard.style";
+import {
+  CustomTableBody,
+  CustomTableCell,
+  CustomTableHead,
+} from "../PlayerCard.style";
 import type { FC } from "react";
 
-export const PlayerDuelsTabel: FC = () => {
+export const PlayerDuelsTable: FC = () => {
   return (
     <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
       <Table aria-label="simple table">
-        <TableHead
-          sx={{
-            backgroundColor: "#FAFAFA",
-          }}
-        >
+        <CustomTableHead>
           <TableRow
             sx={{
               maxHeight: "36px",
             }}
           >
-            <CustomTabelCell>Total</CustomTabelCell>
-            <CustomTabelCell align="left">Won</CustomTabelCell>
+            <CustomTableCell>Total</CustomTableCell>
+            <CustomTableCell align="left">Won</CustomTableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
+        </CustomTableHead>
+        <CustomTableBody>
           <TableRow
             sx={{
               "&:last-child td, &:last-child th": { border: 0 },
               height: "36px",
             }}
           >
-            <CustomTabelCell align="left">
+            <CustomTableCell align="left">
               {playerMockData.duels.total}
-            </CustomTabelCell>
-            <CustomTabelCell align="left">
+            </CustomTableCell>
+            <CustomTableCell align="left">
               {playerMockData.duels.won}
-            </CustomTabelCell>
+            </CustomTableCell>
           </TableRow>
-        </TableBody>
+        </CustomTableBody>
       </Table>
     </TableContainer>
   );

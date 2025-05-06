@@ -1,12 +1,15 @@
 import { Box, ButtonGroup } from "@mui/material";
 import { type FC, useState } from "react";
-import { PlayerCard } from "../../../entity/PlayerCard";
-import { TeamCardsList } from "../../../entity/TeamCard";
-import { TeamCardStatistics } from "../../../entity/TeamCard";
-import { yearDropdownLabels } from "../../../shared/consts/dropdownLabels";
-import { filteringYears } from "../../../shared/consts/filteringYears";
-import { CustomDropdownMenu } from "../../../shared/ui/CustomDropdownMenu/CustomDropdownMenu";
 import { SwitchButton } from "./StatisticsPage.style";
+import { TeamCardStatistics, PlayerCard, TeamCard } from "../../entity";
+import {
+  CustomDropdownMenu,
+  yearDropdownLabels,
+  filteringYears,
+} from "../../shared";
+import { playerMockData } from "../../entity/PlayerCard/model/playerMockData";
+
+const resp = ["data1", "data2", "data3", "data4", "data5"];
 
 const StatisticsPage: FC = () => {
   const [teamsActive, setTeamsActive] = useState(true);
@@ -48,8 +51,16 @@ const StatisticsPage: FC = () => {
         />
       </Box>
       <TeamCardStatistics />
-      <PlayerCard />
-      <TeamCardsList />
+      <PlayerCard
+        player={playerMockData.player}
+        team={playerMockData.team}
+        league={playerMockData.league}
+      />
+      <ul>
+        {resp.map((item, i) => (
+          <TeamCard number={i + 1} key={item} />
+        ))}
+      </ul>
     </>
   );
 };
