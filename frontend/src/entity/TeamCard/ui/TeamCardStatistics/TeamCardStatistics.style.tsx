@@ -4,10 +4,12 @@ import {
   TableBody,
   TableCell,
   TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import styled from "styled-components";
 import { theme } from "../../../../app";
+import { grey } from "@mui/material/colors";
 
 export const IconBlock = styled(Box)(() => ({
   display: "flex",
@@ -45,7 +47,7 @@ export const CardWrapper = styled(Box)(() => ({
   marginTop: "16px",
   display: "flex",
   flexDirection: "column",
-  border: "1px solid #E0E0E0",
+  border: `1px solid ${grey[300]}`,
   borderRadius: "4px",
 }));
 
@@ -58,7 +60,7 @@ export const PrimaryText = styled(Typography)(() => ({
 }));
 
 export const VenueBlockWrapper = styled(Box)(() => ({
-  borderTop: "1px solid #E0E0E0",
+  borderTop: `1px solid ${grey[300]}`,
   marginTop: "16px",
   paddingTop: "16px",
   paddingBottom: "16px",
@@ -83,6 +85,12 @@ export const CustomTableBody = styled(TableBody)(() => ({
   },
 }));
 
+export const CustomTableRow = styled(TableRow)(() => ({
+  "&&": {
+    maxHeight: "36px",
+  },
+}));
+
 export const CustomLeagueAvatar = styled(Avatar)(() => ({
   "&&": {
     width: "18px",
@@ -94,4 +102,16 @@ export const CustomLeagueAvatar = styled(Avatar)(() => ({
 export const TeamBlockWrapper = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
+}));
+
+export const CustomAvatar = styled(Avatar)(() => ({
+  "&&": {
+    borderRadius: "4px",
+  },
+}));
+
+export const TeamStatisticsWrapper = styled(Box)(() => ({
+  "&&": {
+    paddingTop: "16px",
+  },
 }));

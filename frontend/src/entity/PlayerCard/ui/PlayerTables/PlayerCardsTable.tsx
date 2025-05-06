@@ -1,46 +1,34 @@
-import { Paper, Table, TableContainer, TableRow } from "@mui/material";
+import { Paper, Table } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
+  CustomTableContainer,
   CustomTableHead,
+  CustomTableRow,
 } from "../PlayerCard.style";
 import type { FC } from "react";
+import { playerCardsHeaderCells } from "../../../../shared";
 
 export const PlayerCardsTable: FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
+    <CustomTableContainer component={Paper}>
       <Table aria-label="simple table">
         <CustomTableHead>
-          <TableRow
-            sx={{
-              maxHeight: "36px",
-            }}
-          >
-            <CustomTableCell>Yellow</CustomTableCell>
-            <CustomTableCell align="left">Yellow-Red</CustomTableCell>
-            <CustomTableCell align="left">Red</CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            {playerCardsHeaderCells.map((item) => (
+              <CustomTableCell key={item}>{item}</CustomTableCell>
+            ))}
+          </CustomTableRow>
         </CustomTableHead>
         <CustomTableBody>
-          <TableRow
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              height: "36px",
-            }}
-          >
-            <CustomTableCell align="left">
-              {playerMockData.cards.yellow}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.cards.yellowred}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.cards.red}
-            </CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            <CustomTableCell>{playerMockData.cards.yellow}</CustomTableCell>
+            <CustomTableCell>{playerMockData.cards.yellowred}</CustomTableCell>
+            <CustomTableCell>{playerMockData.cards.red}</CustomTableCell>
+          </CustomTableRow>
         </CustomTableBody>
       </Table>
-    </TableContainer>
+    </CustomTableContainer>
   );
 };

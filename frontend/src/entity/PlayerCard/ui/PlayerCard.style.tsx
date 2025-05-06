@@ -2,9 +2,13 @@ import {
   Avatar,
   Box,
   Card,
+  CardContent,
   TableBody,
   TableCell,
+  TableContainer,
+  type TableContainerProps,
   TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import styled from "styled-components";
@@ -46,6 +50,7 @@ export const LeagueBlock = styled(Box)(() => ({
   padding: "0 8px",
   height: "fit-content",
   width: "fit-content",
+  marginBottom: "8px",
 }));
 
 export const CustomTableCell = styled(TableCell)(() => ({
@@ -68,12 +73,30 @@ export const CustomTableHead = styled(TableHead)(() => ({
   },
 }));
 
+export const CustomTableRow = styled(TableRow)(() => ({
+  "&&": {
+    maxHeight: "36px",
+  },
+}));
+
+export const CustomTableContainer = styled(TableContainer)<TableContainerProps>(
+  () => ({
+    "&&": {
+      marginTop: "8px",
+    },
+  }),
+);
+
 export const CustomCard = styled(Card)(() => ({
   "&&": {
     marginTop: "16px",
     backgroundColor: theme.palette.background.paper,
     maxWidth: "928px",
   },
+}));
+
+export const CustomCardContent = styled(CardContent)(() => ({
+  "&&: last-child": { paddingBottom: "16px" },
 }));
 
 export const CardHeader = styled(Box)(() => ({

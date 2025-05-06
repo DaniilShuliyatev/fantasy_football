@@ -1,51 +1,39 @@
-import { Paper, Table, TableContainer, TableRow } from "@mui/material";
+import { Paper, Table } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
+  CustomTableContainer,
   CustomTableHead,
+  CustomTableRow,
 } from "../PlayerCard.style";
 import type { FC } from "react";
+import { playerGamesHeaderCells } from "../../../../shared";
 
 export const PlayerGamesTable: FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
+    <CustomTableContainer component={Paper}>
       <Table aria-label="simple table">
         <CustomTableHead>
-          <TableRow
-            sx={{
-              maxHeight: "36px",
-              maxWidth: "440px",
-            }}
-          >
-            <CustomTableCell>Appearence</CustomTableCell>
-            <CustomTableCell align="left">Position</CustomTableCell>
-            <CustomTableCell align="left">Rating</CustomTableCell>
-            <CustomTableCell align="left">Captain</CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            {playerGamesHeaderCells.map((item) => (
+              <CustomTableCell key={item}>{item}</CustomTableCell>
+            ))}
+          </CustomTableRow>
         </CustomTableHead>
         <CustomTableBody>
-          <TableRow
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              height: "36px",
-            }}
-          >
-            <CustomTableCell align="left">
+          <CustomTableRow>
+            <CustomTableCell>
               {playerMockData.games.appearances}
             </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.games.position}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.games.rating}
-            </CustomTableCell>
-            <CustomTableCell align="left">
+            <CustomTableCell>{playerMockData.games.position}</CustomTableCell>
+            <CustomTableCell>{playerMockData.games.rating}</CustomTableCell>
+            <CustomTableCell>
               {playerMockData.games.captain ? "Yes" : "No"}
             </CustomTableCell>
-          </TableRow>
+          </CustomTableRow>
         </CustomTableBody>
       </Table>
-    </TableContainer>
+    </CustomTableContainer>
   );
 };

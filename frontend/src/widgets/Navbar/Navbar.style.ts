@@ -26,18 +26,19 @@ export const Navigation = styled("nav")(() => ({
 }));
 
 interface NavItemProps {
-  isActive?: boolean;
+  active?: boolean;
 }
 
-export const NavItem = styled(Button)<NavItemProps>(({ theme, isActive }) => ({
-
+export const NavItem = styled(Button, {
+  shouldForwardProp: (prop) => prop !== 'active',
+})<NavItemProps>(({ theme, active }) => ({
   transition: "all 0.5s",
   fontWeight: 500,
   fontSize: "14px",
   lineHeight: "24px",
   borderRadius: 0,
-  color: isActive ? theme.palette.primary.main : theme.palette.text.secondary,
-  borderBottom: isActive ? `2px solid ${theme.palette.primary.main}` : "none",
+  color: active ? theme.palette.primary.main : theme.palette.text.secondary,
+  borderBottom: active ? `2px solid ${theme.palette.primary.main}` : "none",
   backgroundColor: "#fff",
   width: "220px",
   height: "100%",

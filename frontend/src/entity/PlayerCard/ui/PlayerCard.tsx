@@ -1,4 +1,4 @@
-import { Box, CardContent, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import {
   CardHeader,
   CustomLeagueAvatar,
@@ -9,6 +9,7 @@ import {
   PrimaryText,
   SecondaryText,
   CustomPlayerAvatar,
+  CustomCardContent,
 } from "./PlayerCard.style";
 import { PlayerCardsTable } from "./PlayerTables/PlayerCardsTable";
 import { PlayerDuelsTable } from "./PlayerTables/PlayerDuelsTable";
@@ -24,7 +25,7 @@ type PlayerCardProps = Pick<Player, "player" | "league" | "team">;
 export const PlayerCard: FC<PlayerCardProps> = ({ player, league, team }) => {
   return (
     <CustomCard variant="outlined">
-      <CardContent sx={{ "&&": { paddingBottom: "16px" } }}>
+      <CustomCardContent>
         <CardHeader>
           <IconBlock>
             <CustomPlayerAvatar src={player.photo} />
@@ -45,7 +46,7 @@ export const PlayerCard: FC<PlayerCardProps> = ({ player, league, team }) => {
               <CustomLeagueAvatar src={team.logo ?? undefined} />
               {team.name}
             </LeagueBlock>
-            <LeagueBlock sx={{ marginTop: "8px" }}>
+            <LeagueBlock>
               <CustomLeagueAvatar src={league.logo ?? undefined} />
               {league.name}
             </LeagueBlock>
@@ -79,7 +80,7 @@ export const PlayerCard: FC<PlayerCardProps> = ({ player, league, team }) => {
             </Grid>
           </Grid>
         </Box>
-      </CardContent>
+      </CustomCardContent>
     </CustomCard>
   );
 };

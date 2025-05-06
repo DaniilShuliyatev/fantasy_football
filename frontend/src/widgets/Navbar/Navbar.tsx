@@ -34,7 +34,7 @@ export const Navbar: FC = memo(() => {
         </LogoutButton>
       </Header>
       <Navigation>
-        <NavItem onClick={showStatPage} isActive={statisticPage}>
+        <NavItem onClick={showStatPage} active={statisticPage}>
           <Link
             to={RoutePaths.statistics}
             style={{
@@ -44,7 +44,7 @@ export const Navbar: FC = memo(() => {
             STATISTICS
           </Link>
         </NavItem>
-        <NavItem onClick={showTeamPage} isActive={teamPage}>
+        <NavItem onClick={showTeamPage} active={teamPage}>
           <Link
             to={RoutePaths.fantasy_teams}
             style={{

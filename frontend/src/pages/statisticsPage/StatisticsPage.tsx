@@ -1,55 +1,56 @@
-import { Box, ButtonGroup } from "@mui/material";
 import { type FC, useState } from "react";
-import { SwitchButton } from "./StatisticsPage.style";
+import {
+  CustomButtonGroup,
+  PickYearWrapper,
+  SwitchButton,
+} from "./StatisticsPage.style";
 import { TeamCardStatistics, PlayerCard, TeamCard } from "../../entity";
 import {
   CustomDropdownMenu,
+  filteredYears,
   yearDropdownLabels,
-  filteringYears,
 } from "../../shared";
-import { playerMockData } from "../../entity/PlayerCard/model/playerMockData";
+import { playerMockData } from "../../entity";
 
 const resp = ["data1", "data2", "data3", "data4", "data5"];
 
+enum StatisticsPageEnum {
+  TEAMS = "TEAMS",
+  PLAYERS = "PLAYERS",
+}
+
 const StatisticsPage: FC = () => {
-  const [teamsActive, setTeamsActive] = useState(true);
-  const [playersActive, setPlayersActive] = useState(false);
+  const [activeTab, setActiveTab] = useState<StatisticsPageEnum>(
+    StatisticsPageEnum.TEAMS,
+  );
 
-  const onTeams = () => {
-    setPlayersActive(false);
-    setTeamsActive(true);
-  };
-
-  const onPlayers = () => {
-    setTeamsActive(false);
-    setPlayersActive(true);
-  };
+  const onTabChange = (tab: StatisticsPageEnum) => setActiveTab(tab);
 
   return (
     <>
-      <ButtonGroup sx={{ marginTop: "31px" }}>
+      <CustomButtonGroup>
         <SwitchButton
-          isActive={teamsActive}
-          onClick={onTeams}
+          active={activeTab === StatisticsPageEnum.TEAMS}
+          onClick={() => onTabChange(StatisticsPageEnum.TEAMS)}
           variant="outlined"
         >
           TEAMS
         </SwitchButton>
         <SwitchButton
-          onClick={onPlayers}
           variant="outlined"
-          isActive={playersActive}
+          active={activeTab === StatisticsPageEnum.PLAYERS}
+          onClick={() => onTabChange(StatisticsPageEnum.PLAYERS)}
         >
           PLAYERS
         </SwitchButton>
-      </ButtonGroup>
-      <Box sx={{ marginTop: "24px" }}>
+      </CustomButtonGroup>
+      <PickYearWrapper>
         <CustomDropdownMenu
           width="220px"
           Labels={yearDropdownLabels}
-          filteringValues={filteringYears}
+          filteringValues={filteredYears}
         />
-      </Box>
+      </PickYearWrapper>
       <TeamCardStatistics />
       <PlayerCard
         player={playerMockData.player}

@@ -1,42 +1,33 @@
-import { Paper, Table, TableContainer, TableRow } from "@mui/material";
+import { Paper, Table } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
+  CustomTableContainer,
   CustomTableHead,
+  CustomTableRow,
 } from "../PlayerCard.style";
 import type { FC } from "react";
+import { playerPassesHeaderCells } from "../../../../shared";
 
 export const PlayerPassesTable: FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
+    <CustomTableContainer component={Paper}>
       <Table aria-label="simple table">
         <CustomTableHead>
-          <TableRow
-            sx={{
-              maxHeight: "36px",
-            }}
-          >
-            <CustomTableCell>Total</CustomTableCell>
-            <CustomTableCell align="left">Key</CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            {playerPassesHeaderCells.map((item) => (
+              <CustomTableCell key={item}>{item}</CustomTableCell>
+            ))}
+          </CustomTableRow>
         </CustomTableHead>
         <CustomTableBody>
-          <TableRow
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              height: "36px",
-            }}
-          >
-            <CustomTableCell align="left">
-              {playerMockData.passes.total}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.passes.key}
-            </CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            <CustomTableCell>{playerMockData.passes.total}</CustomTableCell>
+            <CustomTableCell>{playerMockData.passes.key}</CustomTableCell>
+          </CustomTableRow>
         </CustomTableBody>
       </Table>
-    </TableContainer>
+    </CustomTableContainer>
   );
 };

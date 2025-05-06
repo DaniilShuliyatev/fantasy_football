@@ -1,19 +1,14 @@
-import { Box } from "@mui/material";
 import { Navbar } from "../widgets";
 import { AppRouter } from "./providers/router";
+import { AppRouterWrapper } from "./App.styles";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Box
-        component={"section"}
-        sx={{
-          padding: "0 180px",
-        }}
-      >
+      <AppRouterWrapper>
         <AppRouter />
-      </Box>
+      </AppRouterWrapper>
     </>
   );
 }

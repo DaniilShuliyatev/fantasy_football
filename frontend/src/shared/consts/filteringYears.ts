@@ -1,12 +1,1 @@
-export function filteringYears() {
-  const nowYear: number = new Date().getFullYear();
-  let lastYear = 2000;
-  const filteringYears: number[] = [];
-
-  while (nowYear >= lastYear) {
-    filteringYears.push(lastYear);
-    lastYear++;
-  }
-
-  return filteringYears;
-}
+export const filteredYears = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010]

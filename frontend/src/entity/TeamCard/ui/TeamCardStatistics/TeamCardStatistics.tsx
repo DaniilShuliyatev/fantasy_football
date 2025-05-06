@@ -2,6 +2,7 @@ import { Avatar, Box } from "@mui/material";
 import { teamMockedData } from "../../model/teamMockedData";
 import {
   CardWrapper,
+  CustomAvatar,
   CustomLeagueAvatar,
   IconBlock,
   LeagueBlock,
@@ -9,6 +10,7 @@ import {
   PrimaryText,
   SecondaryText,
   TeamBlockWrapper,
+  TeamStatisticsWrapper,
   VenueBlockWrapper,
 } from "./TeamCardStatistics.style";
 import { TeamStatistics } from "./TeamStatistics";
@@ -37,12 +39,7 @@ export const TeamCardStatistics: FC = () => {
 
       <VenueBlockWrapper>
         <IconBlock>
-          <Avatar
-            src={teamMockedData.venue.image ?? undefined}
-            sx={{
-              borderRadius: "4px",
-            }}
-          />
+          <CustomAvatar src={teamMockedData.venue.image ?? undefined} />
           <Box>
             <MainText>
               {teamMockedData.venue.name} <br />
@@ -53,13 +50,9 @@ export const TeamCardStatistics: FC = () => {
         </IconBlock>
       </VenueBlockWrapper>
 
-      <Box
-        sx={{
-          paddingTop: "16px",
-        }}
-      >
+      <TeamStatisticsWrapper>
         <TeamStatistics />
-      </Box>
+      </TeamStatisticsWrapper>
     </CardWrapper>
   );
 };

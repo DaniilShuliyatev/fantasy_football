@@ -1,50 +1,35 @@
-import { Paper, Table, TableContainer, TableRow } from "@mui/material";
+import { Paper, Table } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
+  CustomTableContainer,
   CustomTableHead,
+  CustomTableRow,
 } from "../PlayerCard.style";
 import type { FC } from "react";
+import { playerGoalsHeaderCells } from "../../../../shared";
 
 export const PlayerGoalsTable: FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
+    <CustomTableContainer component={Paper}>
       <Table aria-label="simple table">
         <CustomTableHead>
-          <TableRow
-            sx={{
-              maxHeight: "36px",
-            }}
-          >
-            <CustomTableCell>Total</CustomTableCell>
-            <CustomTableCell align="left">Conceded</CustomTableCell>
-            <CustomTableCell align="left">Assists</CustomTableCell>
-            <CustomTableCell align="left">Saves</CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            {playerGoalsHeaderCells.map((item) => (
+              <CustomTableCell key={item}>{item}</CustomTableCell>
+            ))}
+          </CustomTableRow>
         </CustomTableHead>
         <CustomTableBody>
-          <TableRow
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              height: "36px",
-            }}
-          >
-            <CustomTableCell align="left">
-              {playerMockData.goals.total}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.goals.conceded}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.goals.assists}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.goals.saves}
-            </CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            <CustomTableCell>{playerMockData.goals.total}</CustomTableCell>
+            <CustomTableCell>{playerMockData.goals.conceded}</CustomTableCell>
+            <CustomTableCell>{playerMockData.goals.assists}</CustomTableCell>
+            <CustomTableCell>{playerMockData.goals.saves}</CustomTableCell>
+          </CustomTableRow>
         </CustomTableBody>
       </Table>
-    </TableContainer>
+    </CustomTableContainer>
   );
 };

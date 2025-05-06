@@ -1,54 +1,38 @@
-import { Paper, Table, TableContainer, TableRow } from "@mui/material";
+import { Paper, Table } from "@mui/material";
 import { playerMockData } from "../../model/playerMockData";
 import {
   CustomTableBody,
   CustomTableCell,
+  CustomTableContainer,
   CustomTableHead,
+  CustomTableRow,
 } from "../PlayerCard.style";
 import type { FC } from "react";
+import { playerPenaltyHeaderCells } from "../../../../shared";
 
 export const PlayerPenaltyTable: FC = () => {
   return (
-    <TableContainer component={Paper} sx={{ marginTop: "8px" }}>
+    <CustomTableContainer component={Paper}>
       <Table aria-label="simple table">
         <CustomTableHead>
-          <TableRow
-            sx={{
-              maxHeight: "36px",
-            }}
-          >
-            <CustomTableCell>Won</CustomTableCell>
-            <CustomTableCell align="left">Commited</CustomTableCell>
-            <CustomTableCell align="left">Scored</CustomTableCell>
-            <CustomTableCell align="left">Missed</CustomTableCell>
-            <CustomTableCell align="left">Saved</CustomTableCell>
-          </TableRow>
+          <CustomTableRow>
+            {playerPenaltyHeaderCells.map((item) => (
+              <CustomTableCell key={item}>{item}</CustomTableCell>
+            ))}
+          </CustomTableRow>
         </CustomTableHead>
         <CustomTableBody>
-          <TableRow
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              height: "36px",
-            }}
-          >
-            <CustomTableCell align="left">
-              {playerMockData.penalty.won}
-            </CustomTableCell>
-            <CustomTableCell align="left">
+          <CustomTableRow>
+            <CustomTableCell>{playerMockData.penalty.won}</CustomTableCell>
+            <CustomTableCell>
               {playerMockData.penalty.committed}
             </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.penalty.scored}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.penalty.missed}
-            </CustomTableCell>
-            <CustomTableCell align="left">
-              {playerMockData.penalty.saved}
-            </CustomTableCell>
-          </TableRow>
+            <CustomTableCell>{playerMockData.penalty.scored}</CustomTableCell>
+            <CustomTableCell>{playerMockData.penalty.missed}</CustomTableCell>
+            <CustomTableCell>{playerMockData.penalty.saved}</CustomTableCell>
+          </CustomTableRow>
         </CustomTableBody>
       </Table>
-    </TableContainer>
+    </CustomTableContainer>
   );
 };

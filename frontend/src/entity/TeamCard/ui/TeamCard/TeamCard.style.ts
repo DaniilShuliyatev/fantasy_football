@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { Avatar, Box, Button, Card, CardContent, Typography } from "@mui/material";
 import styled from "styled-components";
 import { theme } from "../../../../app";
 
@@ -40,6 +40,7 @@ export const CustomCardContent = styled(CardContent)(() => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  "&&:last-child": { paddingBottom: "16px" }
 }));
 
 export const CustomCard = styled(Card)(() => ({
@@ -57,5 +58,11 @@ export const CustomCountryAvatar = styled(Avatar)(() => ({
     width: "18px",
     height: "18px",
     marginRight: "5px"
+  }
+}))
+
+export const CustomButton = styled(Button)(() => ({
+  '&&': {
+    marginRight: "4px",
   }
 }))

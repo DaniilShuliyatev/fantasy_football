@@ -1,11 +1,11 @@
 import {
-  FormControl,
   InputLabel,
   MenuItem,
   Select,
   type SelectChangeEvent,
 } from "@mui/material";
 import { useState, type FC } from "react";
+import { CustomFormControl } from "./CustomDropdownMenu.styles";
 
 interface Label {
   first: string;
@@ -24,59 +24,49 @@ const menuProps = {
 type DropdownMenuProps = {
   width: string;
   Labels: Label;
-  filteringValues: () => number[] | string[];
+  filteringValues: number[];
 };
 
 export const CustomDropdownMenu: FC<DropdownMenuProps> = (props) => {
   const { width, Labels, filteringValues } = props;
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
   const [label, setLabel] = useState(Labels.first);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const onHandleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
     setLabel(Labels.second);
   };
 
-  const handleOpen = () => {
+  const onHandleOpen = () => {
     setLabel(Labels.second);
   };
 
-  const handleBlure = () => {
+  const onHandleBlure = () => {
     if (value === "") {
       setLabel(Labels.first);
     }
   };
 
   return (
-    <FormControl
-      sx={{
-        height: "100%",
-        width: width,
-      }}
-    >
+    <CustomFormControl width={width}>
       <InputLabel id="demo-simple-select-label">{label}</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={value}
         label="Year"
-        onChange={handleChange}
-        onOpen={handleOpen}
-        onBlur={handleBlure}
+        onChange={onHandleChange}
+        onOpen={onHandleOpen}
+        onBlur={onHandleBlure}
         MenuProps={menuProps}
-        sx={{
-          "&& .MuiSelect-select": {
-            paddingBottom: "10.5px",
-          },
-        }}
       >
         <MenuItem value="">None</MenuItem>
-        {filteringValues().map((value, i) => (
+        {filteringValues.map((value, i) => (
           <MenuItem key={i} value={value}>
             {value}
           </MenuItem>
         ))}
       </Select>
-    </FormControl>
+    </CustomFormControl>
   );
 };

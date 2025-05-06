@@ -3,6 +3,7 @@ import { teamMockedData } from "../../model/teamMockedData";
 import {
   ContentWrapper,
   CountryBlock,
+  CustomButton,
   CustomCard,
   CustomCardContent,
   CustomCountryAvatar,
@@ -18,11 +19,7 @@ type TeamCardProps = {
 export const TeamCard: FC<TeamCardProps> = ({ number }) => {
   return (
     <CustomCard variant="outlined">
-      <CustomCardContent
-        sx={{
-          "&&": { paddingBottom: "16px" },
-        }}
-      >
+      <CustomCardContent>
         <Box>
           <ContentWrapper>
             <MainText>
@@ -40,13 +37,9 @@ export const TeamCard: FC<TeamCardProps> = ({ number }) => {
         </Box>
 
         <Box>
-          <Button
-            sx={{
-              marginRight: "4px",
-            }}
-          >
+          <CustomButton>
             <MainText>EDIT</MainText>
-          </Button>
+          </CustomButton>
           <Button>
             <MainText>DELETE</MainText>
           </Button>
