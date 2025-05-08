@@ -1,4 +1,4 @@
-import type { Player } from "./types/player";
+import type { Player } from "./types";
 
 export const playerMockData: Player = {
   player: {

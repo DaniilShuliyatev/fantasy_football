@@ -1,22 +1,29 @@
 import { type FC, useState } from "react";
 import {
-  CustomButtonGroup,
-  PickYearWrapper,
-  SwitchButton,
-} from "./StatisticsPage.style";
-import { TeamCardStatistics, PlayerCard, TeamCard } from "../../entity";
+  teamMockedData,
+  TeamCardStatistics,
+  PlayerCard,
+  playerMockData,
+  TeamCard,
+} from "../../entity";
 import {
   CustomDropdownMenu,
-  filteredYears,
   yearDropdownLabels,
+  filterYears,
+  TabPanel,
 } from "../../shared";
-import { playerMockData } from "../../entity";
+import {
+  CustomTab,
+  CustomTabs,
+  CustomUl,
+  PickYearWrapper,
+} from "./StatisticsPage.style";
 
 const resp = ["data1", "data2", "data3", "data4", "data5"];
 
 enum StatisticsPageEnum {
-  TEAMS = "TEAMS",
-  PLAYERS = "PLAYERS",
+  TEAMS = 0,
+  PLAYERS = 1,
 }
 
 const StatisticsPage: FC = () => {
@@ -24,44 +31,43 @@ const StatisticsPage: FC = () => {
     StatisticsPageEnum.TEAMS,
   );
 
-  const onTabChange = (tab: StatisticsPageEnum) => setActiveTab(tab);
+  const handleTabChange = (
+    event: React.SyntheticEvent,
+    newValue: StatisticsPageEnum,
+  ) => {
+    setActiveTab(newValue);
+  };
 
   return (
     <>
-      <CustomButtonGroup>
-        <SwitchButton
-          active={activeTab === StatisticsPageEnum.TEAMS}
-          onClick={() => onTabChange(StatisticsPageEnum.TEAMS)}
-          variant="outlined"
-        >
-          TEAMS
-        </SwitchButton>
-        <SwitchButton
-          variant="outlined"
-          active={activeTab === StatisticsPageEnum.PLAYERS}
-          onClick={() => onTabChange(StatisticsPageEnum.PLAYERS)}
-        >
-          PLAYERS
-        </SwitchButton>
-      </CustomButtonGroup>
+      <CustomTabs
+        value={activeTab}
+        onChange={handleTabChange}
+        indicatorColor="primary"
+        textColor="inherit"
+        variant="fullWidth"
+      >
+        <CustomTab label="TEAMS" />
+        <CustomTab leftBorder label="PLAYERS" />
+      </CustomTabs>
       <PickYearWrapper>
         <CustomDropdownMenu
           width="220px"
           Labels={yearDropdownLabels}
-          filteringValues={filteredYears}
+          filterValues={filterYears}
         />
       </PickYearWrapper>
-      <TeamCardStatistics />
-      <PlayerCard
-        player={playerMockData.player}
-        team={playerMockData.team}
-        league={playerMockData.league}
-      />
-      <ul>
-        {resp.map((item, i) => (
-          <TeamCard number={i + 1} key={item} />
-        ))}
-      </ul>
+      <TabPanel value={activeTab} index={StatisticsPageEnum.TEAMS}>
+        <TeamCardStatistics teamData={teamMockedData} />
+        <CustomUl>
+          {resp.map((item, i) => (
+            <TeamCard cardNumber={i + 1} key={item} />
+          ))}
+        </CustomUl>
+      </TabPanel>
+      <TabPanel value={activeTab} index={StatisticsPageEnum.PLAYERS}>
+        <PlayerCard playerData={playerMockData} />
+      </TabPanel>
     </>
   );
 };

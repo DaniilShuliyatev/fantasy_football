@@ -1,7 +1,8 @@
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
-
+import type { LinkProps } from "react-router";
+import { Tab, type TabProps, Tabs } from "@mui/material";
 
 export const Header = styled("header")(() => ({
   height: "70px",
@@ -15,46 +16,34 @@ export const Header = styled("header")(() => ({
   cursor: "default",
 }));
 
-// Стили для Navigation
-export const Navigation = styled("nav")(() => ({
-  height: "48px",
+export const LogoutButton = styled(Button)(() => ({
+  "&&": {
+    fontSize: "14px",
+    fontWeight: 500,
+  },
+}));
+
+export const CustomIcon = styled(ExitToAppOutlinedIcon)(() => ({
+  "&&": {
+    width: "15px",
+    height: "15px",
+    marginLeft: "8px",
+  },
+}));
+
+export const CustomTabs = styled(Tabs)(() => ({
+  minHeight: "48px",
+  color: "#2196F3",
   padding: "0 180px",
-  boxShadow:
-    "0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12)",
+  boxShadow: "0px 2px 1px rgba(0, 0, 0, 0.2)",
   display: "flex",
   alignItems: "center",
 }));
 
-interface NavItemProps {
-  active?: boolean;
-}
+type CustomTabProp = TabProps & LinkProps;
 
-export const NavItem = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'active',
-})<NavItemProps>(({ theme, active }) => ({
-  transition: "all 0.5s",
-  fontWeight: 500,
-  fontSize: "14px",
-  lineHeight: "24px",
-  borderRadius: 0,
-  color: active ? theme.palette.primary.main : theme.palette.text.secondary,
-  borderBottom: active ? `2px solid ${theme.palette.primary.main}` : "none",
-  backgroundColor: "#fff",
-  width: "220px",
-  height: "100%",
+export const CustomTab = styled(Tab)<CustomTabProp>(() => ({
+  "&&": {
+    maxWidth: "220px",
+  },
 }));
-
-export const LogoutButton = styled(Button)(() => ({
-  '&&': {
-    fontSize: "14px",
-    fontWeight: 500,
-  }
-}))
-
-export const CustomIcon = styled(ExitToAppOutlinedIcon)(() => ({
-  '&&': {
-    width: "15px",
-    height: "15px",
-    marginLeft: "8px",
-  }
-}))

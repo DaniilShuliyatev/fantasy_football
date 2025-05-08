@@ -2,11 +2,11 @@ import { Navigate, useLocation } from "react-router";
 import { AppRoutes, RoutePaths } from "../../../shared";
 import type { FC } from "react";
 
-type RequireAuthProps = {
+type PropsWithChildren = {
   children: React.ReactNode;
 };
 
-export const RequireAuth: FC<RequireAuthProps> = ({ children }) => {
+export const RequireAuth: FC<PropsWithChildren> = ({ children }) => {
   const auth = /* useSelector(getUserAuthData) */ true;
   const location = useLocation();
 

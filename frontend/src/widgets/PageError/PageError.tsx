@@ -5,6 +5,7 @@ export const PageError: FC = () => {
   const reloadPage = () => {
     location.reload();
   };
+
   return (
     <PageErrorWrapper>
       <TextError>

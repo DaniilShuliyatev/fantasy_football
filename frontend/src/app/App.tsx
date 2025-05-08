@@ -1,16 +1,13 @@
 import { Navbar } from "../widgets";
-import { AppRouter } from "./providers/router";
+import { AppRouter } from "./providers";
 import { AppRouterWrapper } from "./App.styles";
+import type { FC } from "react";
 
-function App() {
-  return (
-    <>
-      <Navbar />
-      <AppRouterWrapper>
-        <AppRouter />
-      </AppRouterWrapper>
-    </>
-  );
-}
-
-export default App;
+export const App: FC = () => (
+  <>
+    <Navbar />
+    <AppRouterWrapper>
+      <AppRouter />
+    </AppRouterWrapper>
+  </>
+);

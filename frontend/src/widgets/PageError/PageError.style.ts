@@ -1,7 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import styled from "styled-components";
-import { theme } from "../../app";
-
+import { styled } from '@mui/material/styles';
 
 export const PageErrorWrapper = styled(Box)(() => ({
     textAlign: "center",
@@ -16,7 +14,7 @@ export const TextError = styled(Typography)(() => ({
     }
 }))
 
-export const ReloadButton = styled(Button)(() => ({
+export const ReloadButton = styled(Button)(({ theme }) => ({
     '&&': {
         color: theme.palette.error.main,
         borderColor: theme.palette.error.main,

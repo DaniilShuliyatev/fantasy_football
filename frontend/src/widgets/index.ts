@@ -1,4 +1,2 @@
-
-export { Navbar } from './Navbar';
-
-export { PageError } from './PageError'
+export { Navbar } from "./Navbar";
+export { PageError } from "./PageError";

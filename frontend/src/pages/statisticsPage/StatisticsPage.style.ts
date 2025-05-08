@@ -1,33 +1,44 @@
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import { ButtonGroup } from '@mui/material';
-
-interface SwitchButtonProps {
-  active: boolean;
-}
-
-export const SwitchButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'active',
-})<SwitchButtonProps>(({ active }) => ({
-  fontSize: "13px",
-  height: "30px",
-  width: "109px",
-  fontWeight: 500,
-  lineHeight: "22px",
-  backgroundColor: active ? "#2196F380" : "transparent",
-  transition: ".5s all",
-}));
-
-export const CustomButtonGroup = styled(ButtonGroup)(() => ({
-  "&&": {
-    marginTop: "31px"
-  },
-}));
+import { styled } from "@mui/material/styles";
+import { ButtonGroup, Tab, Tabs } from "@mui/material";
 
 export const PickYearWrapper = styled(ButtonGroup)(() => ({
   "&&": {
     marginTop: "24px",
-    display: 'block'
+    display: "block",
   },
 }));
 
+export const CustomTabs = styled(Tabs)(() => ({
+  maxWidth: "220px",
+  minHeight: "30px",
+  color: "#2196F3",
+  border: "1px solid #2196F3",
+  borderRadius: "4px",
+  marginTop: "24px",
+  "& .MuiTabs-indicator": {
+    backgroundColor: "#2196F33D",
+    height: "100%",
+  },
+}));
+
+type CustomTabProps = {
+  leftBorder?: boolean;
+};
+
+export const CustomTab = styled(Tab, {
+  shouldForwardProp: (prop) => prop !== "leftBorder",
+})<CustomTabProps>(({ leftBorder }) => ({
+  "&&": {
+    opacity: 1,
+    fontSize: "13px",
+    lineHeight: "22px",
+    paddingBottom: "4px",
+    paddingTop: "4px",
+    minHeight: "30px",
+    borderLeft: leftBorder ? "1px solid #2196F3" : null,
+  },
+}));
+
+export const CustomUl = styled("ul")(() => ({
+  padding: 0,
+}));

@@ -1,2 +1,2 @@
-export { TeamCardStatistics } from "./ui/TeamCardStatistics/TeamCardStatistics";
-export { TeamCard } from './ui/TeamCard/TeamCard';
+export { TeamCard, TeamCardStatistics } from "./ui";
+export { teamMockedData } from "./model";

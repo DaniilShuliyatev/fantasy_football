@@ -1,25 +1,12 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  TableBody,
-  TableCell,
-  TableContainer,
-  type TableContainerProps,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
-import styled from "styled-components";
-import { theme } from "../../../app";
+import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 export const IconBlock = styled(Box)(() => ({
   display: "flex",
   gap: "16px",
 }));
 
-export const SecondaryText = styled(Typography)(() => ({
+export const SecondaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     color: theme.palette.text.secondary,
     fontSize: "14px",
@@ -33,7 +20,7 @@ export const MainText = styled(Typography)(() => ({
   },
 }));
 
-export const PrimaryText = styled(Typography)(() => ({
+export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
@@ -41,7 +28,7 @@ export const PrimaryText = styled(Typography)(() => ({
   },
 }));
 
-export const LeagueBlock = styled(Box)(() => ({
+export const LeagueBlock = styled(Box)(({ theme }) => ({
   display: "flex",
   fontSize: "13px",
   backgroundColor: theme.palette.customColors.main,
@@ -53,41 +40,7 @@ export const LeagueBlock = styled(Box)(() => ({
   marginBottom: "8px",
 }));
 
-export const CustomTableCell = styled(TableCell)(() => ({
-  "&&": {
-    padding: "6px 16px",
-    fontSize: "14px",
-    lineHeight: "24px",
-  },
-}));
-
-export const CustomTableBody = styled(TableBody)(() => ({
-  "&&": {
-    backgroundColor: "#ffff",
-  },
-}));
-
-export const CustomTableHead = styled(TableHead)(() => ({
-  "&&": {
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-
-export const CustomTableRow = styled(TableRow)(() => ({
-  "&&": {
-    maxHeight: "36px",
-  },
-}));
-
-export const CustomTableContainer = styled(TableContainer)<TableContainerProps>(
-  () => ({
-    "&&": {
-      marginTop: "8px",
-    },
-  }),
-);
-
-export const CustomCard = styled(Card)(() => ({
+export const CustomCard = styled(Card)(({ theme }) => ({
   "&&": {
     marginTop: "16px",
     backgroundColor: theme.palette.background.paper,

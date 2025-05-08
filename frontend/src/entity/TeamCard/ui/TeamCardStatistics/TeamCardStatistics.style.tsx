@@ -1,14 +1,5 @@
-import {
-  Avatar,
-  Box,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
-import styled from "styled-components";
-import { theme } from "../../../../app";
+import { Avatar, Box, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 
 export const IconBlock = styled(Box)(() => ({
@@ -16,7 +7,7 @@ export const IconBlock = styled(Box)(() => ({
   gap: "16px",
 }));
 
-export const SecondaryText = styled(Typography)(() => ({
+export const SecondaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     color: theme.palette.text.secondary,
     fontSize: "14px",
@@ -30,7 +21,7 @@ export const MainText = styled(Typography)(() => ({
   },
 }));
 
-export const LeagueBlock = styled(Box)(() => ({
+export const LeagueBlock = styled(Box)(({ theme }) => ({
   display: "flex",
   fontSize: "13px",
   backgroundColor: theme.palette.customColors.main,
@@ -40,7 +31,7 @@ export const LeagueBlock = styled(Box)(() => ({
   width: "fit-content",
 }));
 
-export const CardWrapper = styled(Box)(() => ({
+export const CardWrapper = styled(Box)(({ theme }) => ({
   padding: "16px",
   backgroundColor: theme.palette.background.paper,
   width: "536px",
@@ -51,7 +42,7 @@ export const CardWrapper = styled(Box)(() => ({
   borderRadius: "4px",
 }));
 
-export const PrimaryText = styled(Typography)(() => ({
+export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
@@ -64,31 +55,6 @@ export const VenueBlockWrapper = styled(Box)(() => ({
   marginTop: "16px",
   paddingTop: "16px",
   paddingBottom: "16px",
-}));
-
-export const CustomTableCell = styled(TableCell)(() => ({
-  "&&": {
-    padding: "6px 16px",
-    fontSize: "14px",
-    lineHeight: "24px",
-  },
-}));
-
-export const CustomTableHead = styled(TableHead)(() => ({
-  "&&": {
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-export const CustomTableBody = styled(TableBody)(() => ({
-  "&&": {
-    backgroundColor: "#ffff",
-  },
-}));
-
-export const CustomTableRow = styled(TableRow)(() => ({
-  "&&": {
-    maxHeight: "36px",
-  },
 }));
 
 export const CustomLeagueAvatar = styled(Avatar)(() => ({

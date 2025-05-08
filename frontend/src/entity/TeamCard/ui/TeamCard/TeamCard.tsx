@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { teamMockedData } from "../../model/teamMockedData";
+import { teamMockedData } from "../../model";
 import {
   ContentWrapper,
   CountryBlock,
@@ -13,38 +13,36 @@ import {
 import type { FC } from "react";
 
 type TeamCardProps = {
-  number: number;
+  cardNumber: number;
 };
 
-export const TeamCard: FC<TeamCardProps> = ({ number }) => {
-  return (
-    <CustomCard variant="outlined">
-      <CustomCardContent>
-        <Box>
-          <ContentWrapper>
-            <MainText>
-              {number}. {teamMockedData.team.name} F.C.
-            </MainText>
-            <CountryBlock>
-              <CustomCountryAvatar src={teamMockedData.league.country.flag} />
-              {teamMockedData.league.country.name}
-            </CountryBlock>
-          </ContentWrapper>
-          <PrimaryText>
-            Total points:{" "}
-            {teamMockedData.stats.wins * 3 + teamMockedData.stats.draws}
-          </PrimaryText>
-        </Box>
+export const TeamCard: FC<TeamCardProps> = ({ cardNumber }) => (
+  <CustomCard variant="outlined">
+    <CustomCardContent>
+      <Box>
+        <ContentWrapper>
+          <MainText>
+            {cardNumber}. {teamMockedData.team.name} F.C.
+          </MainText>
+          <CountryBlock>
+            <CustomCountryAvatar src={teamMockedData.league.country.flag} />
+            {teamMockedData.league.country.name}
+          </CountryBlock>
+        </ContentWrapper>
+        <PrimaryText>
+          Total points:{" "}
+          {teamMockedData.stats.wins * 3 + teamMockedData.stats.draws}
+        </PrimaryText>
+      </Box>
 
-        <Box>
-          <CustomButton>
-            <MainText>EDIT</MainText>
-          </CustomButton>
-          <Button>
-            <MainText>DELETE</MainText>
-          </Button>
-        </Box>
-      </CustomCardContent>
-    </CustomCard>
-  );
-};
+      <Box>
+        <CustomButton>
+          <MainText>EDIT</MainText>
+        </CustomButton>
+        <Button>
+          <MainText>DELETE</MainText>
+        </Button>
+      </Box>
+    </CustomCardContent>
+  </CustomCard>
+);

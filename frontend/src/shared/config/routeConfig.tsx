@@ -1,5 +1,5 @@
 import type { RouteProps } from "react-router";
-import { StatisticsPage } from "../../../pages";
+import { StatisticsPage } from "../../pages";
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
@@ -13,7 +13,7 @@ export enum AppRoutes {
 }
 
 export const RoutePaths: Record<AppRoutes, string> = {
-  [AppRoutes.STATISTICS]: "/",
+  [AppRoutes.STATISTICS]: "/statistics",
   [AppRoutes.FANTASY_TEAMS]: "/fantasy_team",
   [AppRoutes.NOT_FOUND]: "/not_found",
 };

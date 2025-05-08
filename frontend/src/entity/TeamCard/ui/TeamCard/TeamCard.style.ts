@@ -1,8 +1,7 @@
 import { Avatar, Box, Button, Card, CardContent, Typography } from "@mui/material";
-import styled from "styled-components";
-import { theme } from "../../../../app";
+import { styled } from '@mui/material/styles';
 
-export const PrimaryText = styled(Typography)(() => ({
+export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
@@ -10,7 +9,7 @@ export const PrimaryText = styled(Typography)(() => ({
   },
 }));
 
-export const SecondaryText = styled(Typography)(() => ({
+export const SecondaryText = styled(Typography)(({ theme }) => ({
   '&&': {
     color: theme.palette.text.secondary,
     fontSize: "14px",
@@ -26,7 +25,7 @@ export const MainText = styled(Typography)(() => ({
   }
 }));
 
-export const CountryBlock = styled(Box)(() => ({
+export const CountryBlock = styled(Box)(({ theme }) => ({
   display: "flex",
   fontSize: "14px",
   backgroundColor: theme.palette.customColors.main,
@@ -43,7 +42,7 @@ export const CustomCardContent = styled(CardContent)(() => ({
   "&&:last-child": { paddingBottom: "16px" }
 }));
 
-export const CustomCard = styled(Card)(() => ({
+export const CustomCard = styled(Card)(({ theme }) => ({
   marginTop: "16px",
   backgroundColor: theme.palette.background.paper,
   maxWidth: "536px",

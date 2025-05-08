@@ -1,4 +1,4 @@
-import type { Team } from "./types/team";
+import type { Team } from "./types";
 
 export const teamMockedData: Team = {
   team: {

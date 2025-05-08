@@ -1,72 +1,59 @@
-import {
-  InputLabel,
-  MenuItem,
-  Select,
-  type SelectChangeEvent,
-} from "@mui/material";
+import { TextField } from "@mui/material";
 import { useState, type FC } from "react";
-import { CustomFormControl } from "./CustomDropdownMenu.styles";
+import {
+  CustomAutoComplete,
+  CustomFormControl,
+} from "./CustomDropdownMenu.styles";
 
-interface Label {
+type DropdownMenuLabel = {
   first: string;
   second: string;
-}
-
-const menuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: "360px",
-      width: "36px",
-    },
-  },
 };
 
 type DropdownMenuProps = {
   width: string;
-  Labels: Label;
-  filteringValues: number[];
+  Labels: DropdownMenuLabel;
+  filterValues: string[];
 };
 
 export const CustomDropdownMenu: FC<DropdownMenuProps> = (props) => {
-  const { width, Labels, filteringValues } = props;
-  const [value, setValue] = useState<string>("");
+  const { width, Labels, filterValues } = props;
+  const [value, setValue] = useState<string | null>(null);
   const [label, setLabel] = useState(Labels.first);
 
-  const onHandleChange = (event: SelectChangeEvent) => {
-    setValue(event.target.value as string);
+  const handleSelectChange = (
+    event: React.SyntheticEvent<Element, Event>,
+    newValue: string | null,
+  ) => {
+    setValue(newValue);
     setLabel(Labels.second);
   };
 
-  const onHandleOpen = () => {
+  const handleSelectOpen = () => {
     setLabel(Labels.second);
   };
 
-  const onHandleBlure = () => {
-    if (value === "") {
+  const handleSelectBlur = () => {
+    if (value === null) {
       setLabel(Labels.first);
+    } else {
+      setLabel("");
     }
   };
 
   return (
     <CustomFormControl width={width}>
-      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+      <CustomAutoComplete
+        disablePortal
+        options={filterValues}
         value={value}
-        label="Year"
-        onChange={onHandleChange}
-        onOpen={onHandleOpen}
-        onBlur={onHandleBlure}
-        MenuProps={menuProps}
-      >
-        <MenuItem value="">None</MenuItem>
-        {filteringValues.map((value, i) => (
-          <MenuItem key={i} value={value}>
-            {value}
-          </MenuItem>
-        ))}
-      </Select>
+        renderInput={(params: object) => (
+          <TextField {...params} label={label} />
+        )}
+        onChange={handleSelectChange}
+        onOpen={handleSelectOpen}
+        onBlur={handleSelectBlur}
+      />
     </CustomFormControl>
   );
 };

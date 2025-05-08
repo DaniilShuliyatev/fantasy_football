@@ -1,5 +1,4 @@
 import { Avatar, Box } from "@mui/material";
-import { teamMockedData } from "../../model/teamMockedData";
 import {
   CardWrapper,
   CustomAvatar,
@@ -13,45 +12,65 @@ import {
   TeamStatisticsWrapper,
   VenueBlockWrapper,
 } from "./TeamCardStatistics.style";
-import { TeamStatistics } from "./TeamStatistics";
-import type { FC } from "react";
+import { useEffect, useState, type FC } from "react";
+import { CustomTable, teamStatisticsHeaderCells } from "../../../../shared";
+import type { Team } from "../../model";
 
-export const TeamCardStatistics: FC = () => {
+type TeamCardStatisticsProps = {
+  teamData: Team;
+};
+
+export const TeamCardStatistics: FC<TeamCardStatisticsProps> = ({
+  teamData,
+}) => {
+  const [bodyCells, setBodyCells] = useState<number[]>([]);
+
+  useEffect(() => {
+    setBodyCells([
+      teamData.stats.played,
+      teamData.stats.wins,
+      teamData.stats.draws,
+      teamData.stats.loses,
+      teamData.stats.goals,
+    ]);
+  }, [teamData]);
+
   return (
     <CardWrapper>
       <TeamBlockWrapper>
         <IconBlock>
-          <Avatar sizes="40px 40px" src={teamMockedData.team.logo} />
+          <Avatar sizes="40px 40px" src={teamData.team.logo} />
           <Box>
             <MainText>
-              {teamMockedData.team.name} <br />
+              {teamData.team.name} <br />
             </MainText>
-            <SecondaryText>
-              Founded: {teamMockedData.team.founded}
-            </SecondaryText>
+            <SecondaryText>Founded: {teamData.team.founded}</SecondaryText>
           </Box>
         </IconBlock>
         <LeagueBlock>
-          <CustomLeagueAvatar src={teamMockedData.league.logo} />
-          {teamMockedData.league.name}
+          <CustomLeagueAvatar src={teamData.league.logo} />
+          {teamData.league.name}
         </LeagueBlock>
       </TeamBlockWrapper>
 
       <VenueBlockWrapper>
         <IconBlock>
-          <CustomAvatar src={teamMockedData.venue.image ?? undefined} />
+          <CustomAvatar src={teamData.venue.image ?? undefined} />
           <Box>
             <MainText>
-              {teamMockedData.venue.name} <br />
+              {teamData.venue.name} <br />
             </MainText>
-            <SecondaryText>{teamMockedData.venue.address}</SecondaryText>
-            <PrimaryText>Capacity: {teamMockedData.venue.capacity}</PrimaryText>
+            <SecondaryText>{teamData.venue.address}</SecondaryText>
+            <PrimaryText>Capacity: {teamData.venue.capacity}</PrimaryText>
           </Box>
         </IconBlock>
       </VenueBlockWrapper>
 
       <TeamStatisticsWrapper>
-        <TeamStatistics />
+        <CustomTable
+          headerCells={teamStatisticsHeaderCells}
+          bodyCells={bodyCells}
+        />
       </TeamStatisticsWrapper>
     </CardWrapper>
   );
