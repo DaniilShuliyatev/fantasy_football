@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { ButtonGroup, Tab, Tabs } from "@mui/material";
+import { blue } from "@mui/material/colors";
 
 export const PickYearWrapper = styled(ButtonGroup)(() => ({
   "&&": {
@@ -11,8 +12,8 @@ export const PickYearWrapper = styled(ButtonGroup)(() => ({
 export const CustomTabs = styled(Tabs)(() => ({
   maxWidth: "220px",
   minHeight: "30px",
-  color: "#2196F3",
-  border: "1px solid #2196F3",
+  color: blue[500],
+  border: `1px solid ${blue[500]}`,
   borderRadius: "4px",
   marginTop: "24px",
   "& .MuiTabs-indicator": {
@@ -21,13 +22,7 @@ export const CustomTabs = styled(Tabs)(() => ({
   },
 }));
 
-type CustomTabProps = {
-  leftBorder?: boolean;
-};
-
-export const CustomTab = styled(Tab, {
-  shouldForwardProp: (prop) => prop !== "leftBorder",
-})<CustomTabProps>(({ leftBorder }) => ({
+export const CustomTab = styled(Tab)(() => ({
   "&&": {
     opacity: 1,
     fontSize: "13px",
@@ -35,7 +30,9 @@ export const CustomTab = styled(Tab, {
     paddingBottom: "4px",
     paddingTop: "4px",
     minHeight: "30px",
-    borderLeft: leftBorder ? "1px solid #2196F3" : null,
+  },
+  "&:first-of-type": {
+    borderRight: `1px solid ${blue[500]}`,
   },
 }));
 

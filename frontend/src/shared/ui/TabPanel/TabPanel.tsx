@@ -1,12 +1,11 @@
 import { Box } from "@mui/material";
-import type { FC } from "react";
+import type { FC, PropsWithChildren } from "react";
 
 type TabPanelProps = {
-  children?: React.ReactNode;
   dir?: string;
   index: number;
   value: number;
-};
+} & PropsWithChildren;
 
 export const TabPanel: FC<TabPanelProps> = ({
   children,

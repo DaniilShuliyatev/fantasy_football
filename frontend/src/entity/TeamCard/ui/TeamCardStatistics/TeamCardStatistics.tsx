@@ -12,7 +12,7 @@ import {
   TeamStatisticsWrapper,
   VenueBlockWrapper,
 } from "./TeamCardStatistics.style";
-import { useEffect, useState, type FC } from "react";
+import type { FC } from "react";
 import { CustomTable, teamStatisticsHeaderCells } from "../../../../shared";
 import type { Team } from "../../model";
 
@@ -23,17 +23,13 @@ type TeamCardStatisticsProps = {
 export const TeamCardStatistics: FC<TeamCardStatisticsProps> = ({
   teamData,
 }) => {
-  const [bodyCells, setBodyCells] = useState<number[]>([]);
-
-  useEffect(() => {
-    setBodyCells([
-      teamData.stats.played,
-      teamData.stats.wins,
-      teamData.stats.draws,
-      teamData.stats.loses,
-      teamData.stats.goals,
-    ]);
-  }, [teamData]);
+  const bodyCells = [
+    teamData.stats.played,
+    teamData.stats.wins,
+    teamData.stats.draws,
+    teamData.stats.loses,
+    teamData.stats.goals,
+  ];
 
   return (
     <CardWrapper>

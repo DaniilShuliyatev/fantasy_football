@@ -1,10 +1,6 @@
 import { Navigate, useLocation } from "react-router";
 import { AppRoutes, RoutePaths } from "../../../shared";
-import type { FC } from "react";
-
-type PropsWithChildren = {
-  children: React.ReactNode;
-};
+import type { FC, PropsWithChildren } from "react";
 
 export const RequireAuth: FC<PropsWithChildren> = ({ children }) => {
   const auth = /* useSelector(getUserAuthData) */ true;
@@ -19,5 +15,6 @@ export const RequireAuth: FC<PropsWithChildren> = ({ children }) => {
       />
     );
   }
+
   return children;
 };

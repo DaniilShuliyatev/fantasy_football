@@ -6,7 +6,7 @@ import {
   CustomTableCell,
   CustomTableBody,
 } from "./CustomTable.style";
-import { nanoid } from "nanoid";
+import { v4 as uuidV4 } from "uuid";
 
 type CustomTableProps = {
   headerCells: string[];
@@ -22,14 +22,14 @@ export const CustomTable: FC<CustomTableProps> = ({
       <CustomTableHead>
         <CustomTableRow>
           {headerCells.map((item) => (
-            <CustomTableCell key={nanoid()}>{item}</CustomTableCell>
+            <CustomTableCell key={uuidV4()}>{item}</CustomTableCell>
           ))}
         </CustomTableRow>
       </CustomTableHead>
       <CustomTableBody>
         <CustomTableRow>
           {bodyCells?.map((item) => (
-            <CustomTableCell key={nanoid()}>{item}</CustomTableCell>
+            <CustomTableCell key={uuidV4()}>{item}</CustomTableCell>
           ))}
         </CustomTableRow>
       </CustomTableBody>

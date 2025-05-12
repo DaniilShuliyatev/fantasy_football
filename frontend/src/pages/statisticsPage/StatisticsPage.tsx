@@ -22,8 +22,8 @@ import {
 const resp = ["data1", "data2", "data3", "data4", "data5"];
 
 enum StatisticsPageEnum {
-  TEAMS = 0,
-  PLAYERS = 1,
+  TEAMS,
+  PLAYERS,
 }
 
 const StatisticsPage: FC = () => {
@@ -31,10 +31,7 @@ const StatisticsPage: FC = () => {
     StatisticsPageEnum.TEAMS,
   );
 
-  const handleTabChange = (
-    event: React.SyntheticEvent,
-    newValue: StatisticsPageEnum,
-  ) => {
+  const handleTabChange = (_: unknown, newValue: StatisticsPageEnum) => {
     setActiveTab(newValue);
   };
 
@@ -48,7 +45,7 @@ const StatisticsPage: FC = () => {
         variant="fullWidth"
       >
         <CustomTab label="TEAMS" />
-        <CustomTab leftBorder label="PLAYERS" />
+        <CustomTab label="PLAYERS" />
       </CustomTabs>
       <PickYearWrapper>
         <CustomDropdownMenu
@@ -61,7 +58,7 @@ const StatisticsPage: FC = () => {
         <TeamCardStatistics teamData={teamMockedData} />
         <CustomUl>
           {resp.map((item, i) => (
-            <TeamCard cardNumber={i + 1} key={item} />
+            <TeamCard cardNumber={i + 1} key={item} teamData={teamMockedData} />
           ))}
         </CustomUl>
       </TabPanel>

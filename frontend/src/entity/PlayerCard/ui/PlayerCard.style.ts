@@ -1,4 +1,5 @@
 import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 
 export const IconBlock = styled(Box)(() => ({
@@ -24,14 +25,14 @@ export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
-    color: theme.palette.customColors.contrastText,
+    color: theme.palette.customColors.main,
   },
 }));
 
-export const LeagueBlock = styled(Box)(({ theme }) => ({
+export const LeagueBlock = styled(Box)(() => ({
   display: "flex",
   fontSize: "13px",
-  backgroundColor: theme.palette.customColors.main,
+  backgroundColor: grey[200],
   justifySelf: "end",
   borderRadius: "16px",
   padding: "0 8px",
@@ -40,10 +41,10 @@ export const LeagueBlock = styled(Box)(({ theme }) => ({
   marginBottom: "8px",
 }));
 
-export const CustomCard = styled(Card)(({ theme }) => ({
+export const CustomCard = styled(Card)(() => ({
   "&&": {
     marginTop: "16px",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: grey[50],
     maxWidth: "928px",
   },
 }));

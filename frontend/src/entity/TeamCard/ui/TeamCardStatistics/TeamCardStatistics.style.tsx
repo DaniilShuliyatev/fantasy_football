@@ -21,19 +21,19 @@ export const MainText = styled(Typography)(() => ({
   },
 }));
 
-export const LeagueBlock = styled(Box)(({ theme }) => ({
+export const LeagueBlock = styled(Box)(() => ({
   display: "flex",
   fontSize: "13px",
-  backgroundColor: theme.palette.customColors.main,
+  backgroundColor: grey[200],
   borderRadius: "16px",
   padding: "0 8px",
   height: "fit-content",
   width: "fit-content",
 }));
 
-export const CardWrapper = styled(Box)(({ theme }) => ({
+export const CardWrapper = styled(Box)(() => ({
   padding: "16px",
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: grey[50],
   width: "536px",
   marginTop: "16px",
   display: "flex",
@@ -46,7 +46,7 @@ export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
     fontSize: "14px",
     lineHeight: "20px",
-    color: theme.palette.customColors.contrastText,
+    color: theme.palette.customColors.main,
   },
 }));
 

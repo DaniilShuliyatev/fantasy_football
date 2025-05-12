@@ -1,9 +1,5 @@
-import React, { type ReactNode, type ErrorInfo, Suspense } from "react";
+import React, { type ErrorInfo, Suspense, type PropsWithChildren } from "react";
 import { PageError } from "../../../widgets";
-
-type PropsWithChildren = {
-  children: ReactNode;
-};
 
 type HasErrorState = {
   hasError: boolean;

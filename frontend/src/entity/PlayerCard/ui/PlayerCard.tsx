@@ -11,7 +11,7 @@ import {
   CustomPlayerAvatar,
   CustomCardContent,
 } from "./PlayerCard.style";
-import { useEffect, useState, type FC } from "react";
+import type { FC } from "react";
 import type { Player } from "../model";
 import {
   CustomTable,
@@ -27,50 +27,45 @@ type PlayerCardProps = {
   playerData: Player;
 };
 
-type TableCells = (string | number)[];
-
 export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
-  const [cardsBodyCells, setCardsBodyCells] = useState<TableCells>([]);
-  const [duelsBodyCells, setDuelsBodyCells] = useState<TableCells>([]);
-  const [gamesBodyCells, setGamesBodyCells] = useState<TableCells>([]);
-  const [goalsBodyCells, setGoalsBodyCells] = useState<TableCells>([]);
-  const [passesBodyCells, setPassesBodyCells] = useState<TableCells>([]);
-  const [penaltyBodyCells, setPenaltyBodyCells] = useState<TableCells>([]);
+  const getDisplayString = (value: number | string | null) =>
+    value ?? "No info";
 
-  useEffect(() => {
-    setCardsBodyCells([
-      playerData.cards.yellow || "No info",
-      playerData.cards.yellowred || "No info",
-      playerData.cards.red || "No info",
-    ]);
-    setDuelsBodyCells([
-      playerData.duels.total || "No info",
-      playerData.duels.won || "No info",
-    ]);
-    setGamesBodyCells([
-      playerData.games.appearances || "No info",
-      playerData.games.position || "No info",
-      playerData.games.rating || "No info",
-      playerData.games.captain ? "Yes" : "No",
-    ]);
-    setGoalsBodyCells([
-      playerData.goals.total || "No info",
-      playerData.goals.conceded || "No info",
-      playerData.goals.assists || "No info",
-      playerData.goals.saves || "No info",
-    ]);
-    setPassesBodyCells([
-      playerData.passes.total || "No info",
-      playerData.passes.key || "No info",
-    ]);
-    setPenaltyBodyCells([
-      playerData.penalty.won || "No info",
-      playerData.penalty.committed || "No info",
-      playerData.penalty.scored || "No info",
-      playerData.penalty.missed || "No info",
-      playerData.penalty.saved || "No info",
-    ]);
-  }, [playerData]);
+  const cardsBodyCells = [
+    getDisplayString(playerData.cards.yellow),
+    getDisplayString(playerData.cards.yellowred),
+    getDisplayString(playerData.cards.red),
+  ];
+
+  const duelsBodyCells = [
+    getDisplayString(playerData.duels.total),
+    getDisplayString(playerData.duels.won),
+  ];
+
+  const gamesBodyCells = [
+    getDisplayString(playerData.games.appearances),
+    getDisplayString(playerData.games.position),
+    getDisplayString(playerData.games.rating),
+    playerData.games.captain ? "Yes" : "No",
+  ];
+
+  const goalsBodyCells = [
+    getDisplayString(playerData.goals.total),
+    getDisplayString(playerData.goals.conceded),
+    getDisplayString(playerData.goals.assists),
+    getDisplayString(playerData.goals.saves),
+  ];
+  const passesBodyCells = [
+    getDisplayString(playerData.passes.total),
+    getDisplayString(playerData.passes.key),
+  ];
+  const penaltyBodyCells = [
+    getDisplayString(playerData.penalty.won),
+    getDisplayString(playerData.penalty.committed),
+    getDisplayString(playerData.penalty.scored),
+    getDisplayString(playerData.penalty.missed),
+    getDisplayString(playerData.penalty.saved),
+  ];
 
   return (
     <CustomCard variant="outlined">

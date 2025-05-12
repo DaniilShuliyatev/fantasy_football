@@ -1,1 +1,4 @@
-export { CustomDropdownMenu } from "./CustomDropdownMenu";
+export {
+  CustomDropdownMenu,
+  type DropdownMenuLabel,
+} from "./CustomDropdownMenu";

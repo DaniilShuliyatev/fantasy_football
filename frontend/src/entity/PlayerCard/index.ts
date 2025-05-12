@@ -1,2 +1,2 @@
-export { PlayerCard } from "./ui/PlayerCard";
-export { playerMockData } from "./model/playerMockData";
+export { PlayerCard } from "./ui";
+export { playerMockData } from "./model";

@@ -11,8 +11,8 @@ import { RoutePaths } from "../../shared";
 import { Link } from "react-router";
 
 enum NavbarTabsEnum {
-  STATISTICS_PAGE = 0,
-  TEAM_PAGE = 1,
+  STATISTICS_PAGE,
+  TEAM_PAGE,
 }
 
 export const Navbar: FC = memo(() => {
@@ -20,10 +20,7 @@ export const Navbar: FC = memo(() => {
     NavbarTabsEnum.STATISTICS_PAGE,
   );
 
-  const handleTabChange = (
-    event: React.SyntheticEvent,
-    newValue: NavbarTabsEnum,
-  ) => {
+  const handleTabChange = (_: unknown, newValue: NavbarTabsEnum) => {
     setActiveTab(newValue);
   };
 

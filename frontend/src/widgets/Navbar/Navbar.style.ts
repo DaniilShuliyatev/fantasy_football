@@ -3,11 +3,12 @@ import { styled } from "@mui/material/styles";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import type { LinkProps } from "react-router";
 import { Tab, type TabProps, Tabs } from "@mui/material";
+import { blue, grey } from "@mui/material/colors";
 
 export const Header = styled("header")(() => ({
   height: "70px",
-  backgroundColor: "#212121",
-  color: "#fff",
+  backgroundColor: grey[900],
+  color: "#ffff",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -33,7 +34,7 @@ export const CustomIcon = styled(ExitToAppOutlinedIcon)(() => ({
 
 export const CustomTabs = styled(Tabs)(() => ({
   minHeight: "48px",
-  color: "#2196F3",
+  color: blue[500],
   padding: "0 180px",
   boxShadow: "0px 2px 1px rgba(0, 0, 0, 0.2)",
   display: "flex",

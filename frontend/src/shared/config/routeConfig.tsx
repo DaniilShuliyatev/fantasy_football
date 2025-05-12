@@ -8,7 +8,6 @@ export type AppRoutesProps = RouteProps & {
 export enum AppRoutes {
   STATISTICS = "statistics",
   FANTASY_TEAMS = "fantasy_teams",
-
   NOT_FOUND = "not_found",
 }
 

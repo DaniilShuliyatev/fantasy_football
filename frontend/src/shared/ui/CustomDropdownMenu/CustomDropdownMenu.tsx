@@ -5,9 +5,9 @@ import {
   CustomFormControl,
 } from "./CustomDropdownMenu.styles";
 
-type DropdownMenuLabel = {
-  first: string;
-  second: string;
+export type DropdownMenuLabel = {
+  emptyInputLabel: string;
+  inputWithValueLabel: string;
 };
 
 type DropdownMenuProps = {
@@ -16,26 +16,26 @@ type DropdownMenuProps = {
   filterValues: string[];
 };
 
-export const CustomDropdownMenu: FC<DropdownMenuProps> = (props) => {
-  const { width, Labels, filterValues } = props;
+export const CustomDropdownMenu: FC<DropdownMenuProps> = ({
+  width,
+  Labels,
+  filterValues,
+}) => {
   const [value, setValue] = useState<string | null>(null);
-  const [label, setLabel] = useState(Labels.first);
+  const [label, setLabel] = useState(Labels.emptyInputLabel);
 
-  const handleSelectChange = (
-    event: React.SyntheticEvent<Element, Event>,
-    newValue: string | null,
-  ) => {
+  const handleSelectChange = (_: unknown, newValue: string | null) => {
     setValue(newValue);
-    setLabel(Labels.second);
+    setLabel(Labels.inputWithValueLabel);
   };
 
   const handleSelectOpen = () => {
-    setLabel(Labels.second);
+    setLabel(Labels.inputWithValueLabel);
   };
 
   const handleSelectBlur = () => {
     if (value === null) {
-      setLabel(Labels.first);
+      setLabel(Labels.emptyInputLabel);
     } else {
       setLabel("");
     }

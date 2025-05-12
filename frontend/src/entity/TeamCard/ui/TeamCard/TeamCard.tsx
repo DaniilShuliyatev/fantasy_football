@@ -1,5 +1,4 @@
 import { Box, Button } from "@mui/material";
-import { teamMockedData } from "../../model";
 import {
   ContentWrapper,
   CountryBlock,
@@ -11,27 +10,28 @@ import {
   PrimaryText,
 } from "./TeamCard.style";
 import type { FC } from "react";
+import type { Team } from "../../model";
 
 type TeamCardProps = {
   cardNumber: number;
+  teamData: Team;
 };
 
-export const TeamCard: FC<TeamCardProps> = ({ cardNumber }) => (
+export const TeamCard: FC<TeamCardProps> = ({ cardNumber, teamData }) => (
   <CustomCard variant="outlined">
     <CustomCardContent>
       <Box>
         <ContentWrapper>
           <MainText>
-            {cardNumber}. {teamMockedData.team.name} F.C.
+            {cardNumber}. {teamData.team.name} F.C.
           </MainText>
           <CountryBlock>
-            <CustomCountryAvatar src={teamMockedData.league.country.flag} />
-            {teamMockedData.league.country.name}
+            <CustomCountryAvatar src={teamData.league.country.flag} />
+            {teamData.league.country.name}
           </CountryBlock>
         </ContentWrapper>
         <PrimaryText>
-          Total points:{" "}
-          {teamMockedData.stats.wins * 3 + teamMockedData.stats.draws}
+          Total points: {teamData.stats.wins * 3 + teamData.stats.draws}
         </PrimaryText>
       </Box>
 
