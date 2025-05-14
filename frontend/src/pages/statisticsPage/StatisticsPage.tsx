@@ -6,12 +6,7 @@ import {
   playerMockData,
   TeamCard,
 } from "../../entity";
-import {
-  CustomDropdownMenu,
-  yearDropdownLabels,
-  filterYears,
-  TabPanel,
-} from "../../shared";
+import { CustomDropdownMenu, filterYears, TabPanel } from "../../shared";
 import {
   CustomTab,
   CustomTabs,
@@ -50,7 +45,8 @@ const StatisticsPage: FC = () => {
       <PickYearWrapper>
         <CustomDropdownMenu
           width="220px"
-          Labels={yearDropdownLabels}
+          label="Select year"
+          placeholder="Year"
           filterValues={filterYears}
         />
       </PickYearWrapper>

@@ -1,4 +1,3 @@
-export { yearDropdownLabels } from "./dropdownLabels";
 export { filterYears } from "./filteringYears";
 export {
   teamStatisticsHeaderCells,

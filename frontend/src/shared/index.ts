@@ -14,5 +14,4 @@ export {
   playerPassesHeaderCells,
   playerPenaltyHeaderCells,
   filterYears,
-  yearDropdownLabels,
 } from "./consts";
