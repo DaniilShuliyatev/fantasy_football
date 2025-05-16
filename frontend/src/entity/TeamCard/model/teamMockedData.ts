@@ -4,22 +4,22 @@ export const teamMockedData: Team = {
   team: {
     id: "1",
     name: "Real Madrid",
-    logo: "/src/entity/TeamCard/ui/mockImgs/RealMadridLogo.svg",
+    logo: "/mockImages/RealMadridLogo.svg",
     founded: 1902,
   },
   league: {
     id: "1",
     name: "UEFA Champions League",
-    logo: "/src/entity/TeamCard/ui/mockImgs/UEFA.svg",
+    logo: "/mockImages/UEFA.svg",
     country: {
       name: "Spain",
       code: "sdsdsd",
-      flag: "/src/entity/TeamCard/ui/mockImgs/Country.svg",
+      flag: "/mockImages/Country.svg",
     },
   },
   venue: {
     name: "Emirates Stadium",
-    image: "/src/entity/TeamCard/ui/mockImgs/StadiumImage.svg",
+    image: "/mockImages/StadiumImage.svg",
     capacity: 60,
     address: "Hornsey Rd, London N7 7AJ, United Kingdom",
   },

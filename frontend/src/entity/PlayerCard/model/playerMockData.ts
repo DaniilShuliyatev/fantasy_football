@@ -5,18 +5,18 @@ export const playerMockData: Player = {
     id: "1",
     name: "Bukayo Saka",
     age: 29,
-    photo: "src/entity/PlayerCard/ui/mockImages/Player.svg",
+    photo: "/mockImages/Player.svg",
     birth: "September 5, 2001",
     height: "1,78m",
     weight: "69kg",
   },
   team: {
     name: "Arsenal F.C",
-    logo: "src/entity/PlayerCard/ui/mockImages/ClubIcon.svg",
+    logo: "/mockImages/ClubIcon.svg",
   },
   league: {
     name: "UEFA Champions League",
-    logo: "/src/entity/TeamCard/ui/mockImgs/UEFA.svg",
+    logo: "/mockImages/UEFA.svg",
   },
   games: {
     appearances: 11,

@@ -1,9 +1,10 @@
-import Button from "@mui/material/Button";
+import Button, { type ButtonProps } from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
-import type { LinkProps } from "react-router";
+import { Link, type LinkProps } from "react-router";
 import { Tab, type TabProps, Tabs } from "@mui/material";
 import { blue, grey } from "@mui/material/colors";
+import LoginIcon from "@mui/icons-material/Login";
 
 export const Header = styled("header")(() => ({
   height: "70px",
@@ -17,6 +18,8 @@ export const Header = styled("header")(() => ({
   cursor: "default",
 }));
 
+type CustomLogButtonProps = ButtonProps & LinkProps;
+
 export const LogoutButton = styled(Button)(() => ({
   "&&": {
     fontSize: "14px",
@@ -24,7 +27,22 @@ export const LogoutButton = styled(Button)(() => ({
   },
 }));
 
-export const CustomIcon = styled(ExitToAppOutlinedIcon)(() => ({
+export const LoginButton = styled(Button)<CustomLogButtonProps>(() => ({
+  "&&": {
+    fontSize: "14px",
+    fontWeight: 500,
+  },
+}));
+
+export const CustomLogoutIcon = styled(ExitToAppOutlinedIcon)(() => ({
+  "&&": {
+    width: "15px",
+    height: "15px",
+    marginLeft: "8px",
+  },
+}));
+
+export const CustomLoginIcon = styled(LoginIcon)(() => ({
   "&&": {
     width: "15px",
     height: "15px",
@@ -46,5 +64,15 @@ type CustomTabProp = TabProps & LinkProps;
 export const CustomTab = styled(Tab)<CustomTabProp>(() => ({
   "&&": {
     maxWidth: "220px",
+  },
+}));
+
+export const CustomLink = styled(Link)(() => ({
+  "&&": {
+    textDecoration: "none",
+    color: "#ffff",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
   },
 }));

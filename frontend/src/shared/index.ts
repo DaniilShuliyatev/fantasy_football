@@ -4,6 +4,8 @@ export {
   type AppRoutesProps,
   routeConfig,
   AppRoutes,
+  navbarNoTabsRoutes,
+  navbarStatisticsActiveTabRoutes,
 } from "./config";
 export {
   teamStatisticsHeaderCells,
@@ -15,3 +17,4 @@ export {
   playerPenaltyHeaderCells,
   filterYears,
 } from "./consts";
+export { getDisplayString } from "./utils";

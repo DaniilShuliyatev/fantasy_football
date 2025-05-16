@@ -15,6 +15,7 @@ import type { FC } from "react";
 import type { Player } from "../model";
 import {
   CustomTable,
+  getDisplayString,
   playerCardsHeaderCells,
   playerDuelsHeaderCells,
   playerGamesHeaderCells,
@@ -28,9 +29,6 @@ type PlayerCardProps = {
 };
 
 export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
-  const getDisplayString = (value: number | string | null) =>
-    value ?? "No info";
-
   const cardsBodyCells = [
     getDisplayString(playerData.cards.yellow),
     getDisplayString(playerData.cards.yellowred),

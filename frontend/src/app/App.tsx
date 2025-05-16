@@ -5,7 +5,7 @@ import type { FC } from "react";
 
 export const App: FC = () => (
   <>
-    <Navbar />
+    <Navbar isAuth={true} />
     <AppRouterWrapper>
       <AppRouter />
     </AppRouterWrapper>

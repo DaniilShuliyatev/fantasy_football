@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router";
-import { AppRoutes, RoutePaths } from "../../../shared";
+import { RoutePaths } from "../../../shared";
 import type { FC, PropsWithChildren } from "react";
 
 export const RequireAuth: FC<PropsWithChildren> = ({ children }) => {
@@ -9,7 +9,7 @@ export const RequireAuth: FC<PropsWithChildren> = ({ children }) => {
   if (!auth) {
     return (
       <Navigate
-        to={RoutePaths[AppRoutes.STATISTICS]}
+        to={RoutePaths.statistics_teams}
         state={{ from: location }}
         replace
       />
