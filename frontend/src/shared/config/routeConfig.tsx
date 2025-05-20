@@ -4,6 +4,7 @@ import {
   EditTeamPage,
   FantastTeamPage,
   LoginPage,
+  NotFoundPage,
   SignupPage,
   StatisticsPage,
 } from "../../pages";
@@ -13,6 +14,7 @@ export type AppRoutesProps = RouteProps & {
 };
 
 export enum AppRoutes {
+  DEFAULT = "default",
   STATISTICS = "statistics",
   FANTASY_TEAMS = "fantasy_teams",
   STATISTICS_TEAMS = "statistics_teams",
@@ -25,18 +27,22 @@ export enum AppRoutes {
 }
 
 export const RoutePaths: Record<AppRoutes, string> = {
+  [AppRoutes.DEFAULT]: "/",
   [AppRoutes.STATISTICS]: "/statistics",
   [AppRoutes.STATISTICS_TEAMS]: "/statistics/teams",
   [AppRoutes.STATISTICS_PLAYERS]: "/statistics/players",
-  [AppRoutes.FANTASY_TEAMS]: "/fantasy_team",
-  [AppRoutes.CREATE_TEAM]: "/fantasy_team/create_team",
-  [AppRoutes.EDIT_TEAM]: "/fantasy_team/edit_team/", // +id
+  [AppRoutes.FANTASY_TEAMS]: "/fantasy-team",
+  [AppRoutes.CREATE_TEAM]: "/fantasy-team/create",
+  [AppRoutes.EDIT_TEAM]: "/fantasy-team/edit-team/", // +id
   [AppRoutes.LOGIN]: "/login",
   [AppRoutes.SIGNUP]: "/signup",
-  [AppRoutes.NOT_FOUND]: "/not_found",
+  [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
+  [AppRoutes.DEFAULT]: {
+    path: `${RoutePaths.default}`,
+  },
   [AppRoutes.STATISTICS]: {
     path: `${RoutePaths.statistics}`,
     element: <StatisticsPage />,
@@ -74,13 +80,26 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.NOT_FOUND]: {
     path: `${RoutePaths.not_found}`,
+    element: <NotFoundPage />,
   },
 };
 
-export const navbarNoTabsRoutes = [RoutePaths.login, RoutePaths.signup];
+export const navbarShowTabsRoutes = [
+  RoutePaths.create_team,
+  RoutePaths.edit_team,
+  RoutePaths.fantasy_teams,
+  RoutePaths.statistics,
+  RoutePaths.statistics_players,
+  RoutePaths.statistics_teams,
+];
 
 export const navbarStatisticsActiveTabRoutes = [
   RoutePaths.statistics,
   RoutePaths.statistics_players,
   RoutePaths.statistics_teams,
+];
+
+export const statisticsTeamsRedirectRoutes = [
+  RoutePaths.default,
+  RoutePaths.statistics,
 ];

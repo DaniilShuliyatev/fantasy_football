@@ -1,8 +1,6 @@
 import type { FC } from "react";
-import { CustomSignupTypography } from "./SignupPage.style";
+import { CustomHeaderTypography } from "../../shared";
 
-const SignupPage: FC = () => (
-  <CustomSignupTypography>Signup</CustomSignupTypography>
-);
+const SignupPage: FC = () => <CustomHeaderTypography title="Signup" />;
 
 export default SignupPage;

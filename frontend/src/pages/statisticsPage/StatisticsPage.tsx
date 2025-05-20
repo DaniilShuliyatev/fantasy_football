@@ -23,9 +23,9 @@ const StatisticsPage: FC = () => {
   const { pathname } = useLocation();
 
   const setActiveTabFromPathname = useCallback(() => {
-    return pathname !== RoutePaths.statistics_players
-      ? StatisticsPageEnum.TEAMS
-      : StatisticsPageEnum.PLAYERS;
+    return pathname === RoutePaths.statistics_players
+      ? StatisticsPageEnum.PLAYERS
+      : StatisticsPageEnum.TEAMS;
   }, [pathname]);
 
   const [activeTab, setActiveTab] = useState<StatisticsPageEnum>(

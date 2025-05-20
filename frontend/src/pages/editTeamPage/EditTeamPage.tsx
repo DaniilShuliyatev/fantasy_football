@@ -1,8 +1,6 @@
 import type { FC } from "react";
-import { CustomHeaderTypography } from "./EditTeamPage.style";
+import { CustomHeaderTypography } from "../../shared";
 
-const EditTeamPage: FC = () => (
-  <CustomHeaderTypography>Edit team</CustomHeaderTypography>
-);
+const EditTeamPage: FC = () => <CustomHeaderTypography title="Edit team" />;
 
 export default EditTeamPage;

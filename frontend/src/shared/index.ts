@@ -1,11 +1,17 @@
-export { CustomDropdownMenu, CustomTable, TabPanel } from "./ui";
+export {
+  CustomDropdownMenu,
+  CustomTable,
+  TabPanel,
+  CustomHeaderTypography,
+} from "./ui";
 export {
   RoutePaths,
   type AppRoutesProps,
   routeConfig,
   AppRoutes,
-  navbarNoTabsRoutes,
+  navbarShowTabsRoutes,
   navbarStatisticsActiveTabRoutes,
+  statisticsTeamsRedirectRoutes,
 } from "./config";
 export {
   teamStatisticsHeaderCells,

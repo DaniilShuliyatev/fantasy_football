@@ -1,8 +1,6 @@
 import type { FC } from "react";
-import { CustomLoginTypography } from "./LoginPage.style";
+import { CustomHeaderTypography } from "../../shared";
 
-const LoginPage: FC = () => (
-  <CustomLoginTypography>Login</CustomLoginTypography>
-);
+const LoginPage: FC = () => <CustomHeaderTypography title="Login" />;
 
 export default LoginPage;

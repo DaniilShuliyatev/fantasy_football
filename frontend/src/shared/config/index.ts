@@ -3,6 +3,7 @@ export {
   type AppRoutesProps,
   routeConfig,
   AppRoutes,
-  navbarNoTabsRoutes,
+  navbarShowTabsRoutes,
   navbarStatisticsActiveTabRoutes,
+  statisticsTeamsRedirectRoutes,
 } from "./routeConfig";

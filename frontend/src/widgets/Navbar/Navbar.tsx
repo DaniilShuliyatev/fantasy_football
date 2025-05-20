@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { type FC, memo, useCallback, useEffect, useState } from "react";
+import { type FC, memo, useEffect, useState } from "react";
 import {
   CustomLink,
   CustomLoginIcon,
@@ -11,7 +11,7 @@ import {
   LogoutButton,
 } from "./Navbar.style";
 import {
-  navbarNoTabsRoutes,
+  navbarShowTabsRoutes,
   navbarStatisticsActiveTabRoutes,
   RoutePaths,
 } from "../../shared";
@@ -26,26 +26,28 @@ type NavbarProps = {
   isAuth: boolean;
 };
 
+const getCurrentTab = (pathname: string) => {
+  return navbarStatisticsActiveTabRoutes.includes(pathname)
+    ? NavbarTabsEnum.STATISTICS_PAGE
+    : NavbarTabsEnum.TEAM_PAGE;
+};
+
 export const Navbar: FC<NavbarProps> = memo(({ isAuth }) => {
   const { pathname } = useLocation();
 
-  const setActiveTabFromPathname = useCallback(() => {
-    return !navbarStatisticsActiveTabRoutes.includes(pathname)
-      ? NavbarTabsEnum.TEAM_PAGE
-      : NavbarTabsEnum.STATISTICS_PAGE;
-  }, [pathname]);
-
   const [activeTab, setActiveTab] = useState<NavbarTabsEnum>(
-    setActiveTabFromPathname,
+    getCurrentTab(pathname),
   );
 
   useEffect(() => {
-    setActiveTab(setActiveTabFromPathname());
-  }, [setActiveTabFromPathname]);
+    setActiveTab(getCurrentTab(pathname));
+  }, [pathname]);
 
   const handleTabChange = (_: unknown, newValue: NavbarTabsEnum) => {
     setActiveTab(newValue);
   };
+
+  const isTabsVisible = navbarShowTabsRoutes.includes(pathname);
 
   return (
     <>
@@ -53,7 +55,7 @@ export const Navbar: FC<NavbarProps> = memo(({ isAuth }) => {
         <CustomLink to={RoutePaths.statistics_teams}>
           <Typography component={"h1"}>Fantasy league</Typography>
         </CustomLink>
-        {!navbarNoTabsRoutes.includes(pathname) &&
+        {isTabsVisible &&
           (isAuth ? (
             <LogoutButton variant="contained">
               LOGOUT
@@ -70,7 +72,7 @@ export const Navbar: FC<NavbarProps> = memo(({ isAuth }) => {
             </LoginButton>
           ))}
       </Header>
-      {!navbarNoTabsRoutes.includes(pathname) ? (
+      {isTabsVisible ? (
         <CustomTabs
           value={activeTab}
           onChange={handleTabChange}
