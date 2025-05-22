@@ -1,20 +1,18 @@
-import { type FC, useState } from "react";
+import { type FC, useCallback, useEffect, useState } from "react";
 import {
   teamMockedData,
   TeamCardStatistics,
   PlayerCard,
   playerMockData,
-  TeamCard,
 } from "../../entity";
-import { CustomDropdownMenu, filterYears, TabPanel } from "../../shared";
 import {
-  CustomTab,
-  CustomTabs,
-  CustomUl,
-  PickYearWrapper,
-} from "./StatisticsPage.style";
-
-const resp = ["data1", "data2", "data3", "data4", "data5"];
+  CustomDropdownMenu,
+  filterYears,
+  RoutePaths,
+  TabPanel,
+} from "../../shared";
+import { CustomTab, CustomTabs, PickYearWrapper } from "./StatisticsPage.style";
+import { Link, useLocation } from "react-router";
 
 enum StatisticsPageEnum {
   TEAMS,
@@ -22,9 +20,21 @@ enum StatisticsPageEnum {
 }
 
 const StatisticsPage: FC = () => {
+  const { pathname } = useLocation();
+
+  const setActiveTabFromPathname = useCallback(() => {
+    return pathname === RoutePaths.statistics_players
+      ? StatisticsPageEnum.PLAYERS
+      : StatisticsPageEnum.TEAMS;
+  }, [pathname]);
+
   const [activeTab, setActiveTab] = useState<StatisticsPageEnum>(
-    StatisticsPageEnum.TEAMS,
+    setActiveTabFromPathname,
   );
+
+  useEffect(() => {
+    setActiveTab(setActiveTabFromPathname);
+  }, [setActiveTabFromPathname]);
 
   const handleTabChange = (_: unknown, newValue: StatisticsPageEnum) => {
     setActiveTab(newValue);
@@ -39,8 +49,16 @@ const StatisticsPage: FC = () => {
         textColor="inherit"
         variant="fullWidth"
       >
-        <CustomTab label="TEAMS" />
-        <CustomTab label="PLAYERS" />
+        <CustomTab
+          label={"TEAMS"}
+          component={Link}
+          to={RoutePaths.statistics_teams}
+        />
+        <CustomTab
+          label={"PLAYERS"}
+          component={Link}
+          to={RoutePaths.statistics_players}
+        />
       </CustomTabs>
       <PickYearWrapper>
         <CustomDropdownMenu
@@ -52,11 +70,6 @@ const StatisticsPage: FC = () => {
       </PickYearWrapper>
       <TabPanel value={activeTab} index={StatisticsPageEnum.TEAMS}>
         <TeamCardStatistics teamData={teamMockedData} />
-        <CustomUl>
-          {resp.map((item, i) => (
-            <TeamCard cardNumber={i + 1} key={item} teamData={teamMockedData} />
-          ))}
-        </CustomUl>
       </TabPanel>
       <TabPanel value={activeTab} index={StatisticsPageEnum.PLAYERS}>
         <PlayerCard playerData={playerMockData} />

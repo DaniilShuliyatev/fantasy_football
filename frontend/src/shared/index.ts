@@ -1,9 +1,17 @@
-export { CustomDropdownMenu, CustomTable, TabPanel } from "./ui";
+export {
+  CustomDropdownMenu,
+  CustomTable,
+  TabPanel,
+  CustomHeaderTypography,
+} from "./ui";
 export {
   RoutePaths,
   type AppRoutesProps,
   routeConfig,
   AppRoutes,
+  navbarShowTabsRoutes,
+  navbarStatisticsActiveTabRoutes,
+  statisticsTeamsRedirectRoutes,
 } from "./config";
 export {
   teamStatisticsHeaderCells,
@@ -15,3 +23,4 @@ export {
   playerPenaltyHeaderCells,
   filterYears,
 } from "./consts";
+export { getDisplayString } from "./utils";

@@ -2,12 +2,14 @@ import {
   Avatar,
   Box,
   Button,
+  type ButtonProps,
   Card,
   CardContent,
   Typography,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
+import type { LinkProps } from "react-router";
 
 export const PrimaryText = styled(Typography)(({ theme }) => ({
   "&&": {
@@ -68,7 +70,9 @@ export const CustomCountryAvatar = styled(Avatar)(() => ({
   },
 }));
 
-export const CustomButton = styled(Button)(() => ({
+type CustomButtonProps = ButtonProps & LinkProps;
+
+export const CustomButton = styled(Button)<CustomButtonProps>(() => ({
   "&&": {
     marginRight: "4px",
   },

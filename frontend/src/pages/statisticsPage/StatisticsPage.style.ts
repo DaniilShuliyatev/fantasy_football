@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
-import { ButtonGroup, Tab, Tabs } from "@mui/material";
+import { ButtonGroup, Tab, type TabProps, Tabs } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import type { LinkProps } from "react-router";
 
 export const PickYearWrapper = styled(ButtonGroup)(() => ({
   "&&": {
@@ -22,7 +23,9 @@ export const CustomTabs = styled(Tabs)(() => ({
   },
 }));
 
-export const CustomTab = styled(Tab)(() => ({
+type CustomTabProp = TabProps & LinkProps;
+
+export const CustomTab = styled(Tab)<CustomTabProp>(() => ({
   "&&": {
     opacity: 1,
     fontSize: "13px",
@@ -34,8 +37,4 @@ export const CustomTab = styled(Tab)(() => ({
   "&:first-of-type": {
     borderRight: `1px solid ${blue[500]}`,
   },
-}));
-
-export const CustomUl = styled("ul")(() => ({
-  padding: 0,
 }));

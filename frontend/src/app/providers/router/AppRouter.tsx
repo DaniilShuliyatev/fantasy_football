@@ -1,10 +1,17 @@
 import { Skeleton } from "@mui/material";
 import { Suspense, useCallback } from "react";
-import { Route, Routes } from "react-router";
-import { type AppRoutesProps, routeConfig } from "../../../shared";
+import { Navigate, Route, Routes, useLocation } from "react-router";
+import {
+  type AppRoutesProps,
+  routeConfig,
+  RoutePaths,
+  statisticsTeamsRedirectRoutes,
+} from "../../../shared";
 import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter = () => {
+  const location = useLocation();
+
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
       <Suspense fallback={<Skeleton>{route.element}</Skeleton>}>
@@ -22,6 +29,16 @@ export const AppRouter = () => {
       />
     );
   }, []);
+
+  if (statisticsTeamsRedirectRoutes.includes(location.pathname)) {
+    return (
+      <Navigate
+        to={RoutePaths.statistics_teams}
+        state={{ from: location }}
+        replace
+      />
+    );
+  }
 
   return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
