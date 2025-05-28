@@ -1,0 +1,2 @@
+export const TEAM_STATISTICS_CARDS_PER_PAGE = 8;
+export const PLAYER_CARDS_PER_PAGE = 6;

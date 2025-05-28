@@ -1,15 +1,12 @@
 import type { FC } from "react";
-import { TeamCard, teamMockedData } from "../../entity";
 import {
   CustomAddCircleOutlineIcon,
-  CustomUl,
   HeaderText,
   HeaderWrapper,
 } from "./FantasyTeamPage.style";
 import { Link } from "react-router";
 import { RoutePaths } from "../../shared";
-
-const resp = ["data1", "data2", "data3", "data4", "data5"];
+import { TeamCardsList } from "../../entity";
 
 const FantasyTeamPage: FC = () => (
   <>
@@ -19,11 +16,7 @@ const FantasyTeamPage: FC = () => (
         <CustomAddCircleOutlineIcon />
       </Link>
     </HeaderWrapper>
-    <CustomUl>
-      {resp.map((item, i) => (
-        <TeamCard cardNumber={i + 1} key={item} teamData={teamMockedData} />
-      ))}
-    </CustomUl>
+    <TeamCardsList />
   </>
 );
 

@@ -9,7 +9,7 @@ type DropdownMenuProps = {
   width: string;
   label: string;
   placeholder: string;
-  filterValues: string[];
+  filterValues: string[] | [];
 };
 
 export const CustomDropdownMenu: FC<DropdownMenuProps> = ({

@@ -1,10 +1,6 @@
 import { Box, styled, Typography, type TypographyProps } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-export const CustomUl = styled("ul")(() => ({
-  padding: 0,
-}));
-
 export const HeaderWrapper = styled(Box)(() => ({
   display: "flex",
   marginTop: "24px",

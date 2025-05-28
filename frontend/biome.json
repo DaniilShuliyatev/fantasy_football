@@ -32,6 +32,9 @@
       },
       "style": {
         "useEnumInitializers": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
       }
     }
   },
