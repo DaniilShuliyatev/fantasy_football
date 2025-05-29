@@ -38,11 +38,11 @@ const StatisticsPage: FC = () => {
     queryFn: ({ signal }) => getFilteringSeasons({ signal }),
   });
 
+  const filterSeasons = data?.map((item) => item.year.toString()) || [];
+
   if (error) {
     return <Typography>{error.message}</Typography>;
   }
-
-  const filterSeasons = data?.map((item) => item.year.toString());
 
   return (
     <>
@@ -69,7 +69,8 @@ const StatisticsPage: FC = () => {
           width="220px"
           label="Select year"
           placeholder="Year"
-          filterValues={filterSeasons || []}
+          defaultValue={"2021"}
+          filterValues={filterSeasons}
         />
       </PickYearWrapper>
       <TabPanel value={activeTab} index={StatisticsPageEnum.TEAMS}>

@@ -14,12 +14,8 @@ export const getTeamsByYear = async ({
   page,
 }: GetTeamsByYearProps): Promise<getTeamResponse | undefined> => {
   try {
-    const response = await $api.get(
-      `/teams-by-year?year=${year}&page=${page}&per_page=${TEAM_STATISTICS_CARDS_PER_PAGE}`,
-      {
-        signal,
-      },
-    );
+    const url = `/teams-by-year?year=${year}&page=${page}&per_page=${TEAM_STATISTICS_CARDS_PER_PAGE}`;
+    const response = await $api.get(url, { signal });
 
     return response.data;
   } catch (e) {

@@ -18,7 +18,7 @@ export const CustomFormControl = styled(FormControl, {
 
 export const CustomAutoComplete = styled(
   Autocomplete as React.ComponentType<
-    AutocompleteProps<string, false, false, false>
+    AutocompleteProps<string, false, true, false>
   >,
 )(() => ({
   "& .MuiAutocomplete-inputRoot": {

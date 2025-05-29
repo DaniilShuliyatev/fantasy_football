@@ -67,13 +67,13 @@ export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
     getDisplayString(playerData.penalty.saved),
   ];
 
-  const bornDate = new Date(getDisplayString(playerData.player.birth.date));
+  const birthDate = new Date(getDisplayString(playerData.player.birth.date));
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  const formattedBornDate = bornDate.toLocaleDateString("en-Us", dateOptions);
+  const formattedBornDate = birthDate.toLocaleDateString("en-Us", dateOptions);
 
   return (
     <CustomCard variant="outlined">

@@ -13,13 +13,11 @@ export const SkeletonCardsList: FC<SkeletonCardsListProps> = ({
   width,
   height,
 }) => {
-  const arr: number[] = [];
-  arr.length = cardsCount;
-  arr.fill(0);
+  const skeletons = Array.from({ length: cardsCount });
 
   return (
     <SkeletonsWrapper>
-      {arr.map((_, i) => (
+      {skeletons.map((_, i) => (
         <Skeleton
           key={i}
           width={width}
