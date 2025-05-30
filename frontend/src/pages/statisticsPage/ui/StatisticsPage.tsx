@@ -1,18 +1,11 @@
 import { type FC, useCallback, useEffect, useState } from "react";
-import {
-  teamMockedData,
-  TeamCardStatistics,
-  PlayerCard,
-  playerMockData,
-} from "../../entity";
-import {
-  CustomDropdownMenu,
-  filterYears,
-  RoutePaths,
-  TabPanel,
-} from "../../shared";
+import { CustomDropdownMenu, RoutePaths, TabPanel } from "../../../shared";
 import { CustomTab, CustomTabs, PickYearWrapper } from "./StatisticsPage.style";
 import { Link, useLocation } from "react-router";
+import { PlayerCardsList, TeamCardStatisticsList } from "../../../entity";
+import { useQuery } from "@tanstack/react-query";
+import { getFilteringSeasons } from "../model";
+import { Typography } from "@mui/material";
 
 enum StatisticsPageEnum {
   TEAMS,
@@ -40,6 +33,17 @@ const StatisticsPage: FC = () => {
     setActiveTab(newValue);
   };
 
+  const { data, error } = useQuery({
+    queryKey: ["seasons"],
+    queryFn: ({ signal }) => getFilteringSeasons({ signal }),
+  });
+
+  const filterSeasons = data?.map((item) => item.year.toString()) || [];
+
+  if (error) {
+    return <Typography>{error.message}</Typography>;
+  }
+
   return (
     <>
       <CustomTabs
@@ -65,14 +69,15 @@ const StatisticsPage: FC = () => {
           width="220px"
           label="Select year"
           placeholder="Year"
-          filterValues={filterYears}
+          defaultValue={"2021"}
+          filterValues={filterSeasons}
         />
       </PickYearWrapper>
       <TabPanel value={activeTab} index={StatisticsPageEnum.TEAMS}>
-        <TeamCardStatistics teamData={teamMockedData} />
+        <TeamCardStatisticsList />
       </TabPanel>
       <TabPanel value={activeTab} index={StatisticsPageEnum.PLAYERS}>
-        <PlayerCard playerData={playerMockData} />
+        <PlayerCardsList />
       </TabPanel>
     </>
   );

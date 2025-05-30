@@ -1,2 +1,2 @@
-export { teamMockedData } from "./teamMockedData";
-export type { Team } from "./types";
+export type { Team, getTeamResponse } from "./types";
+export { getTeamsByYear, getTeamsByYearInfinityQueryOptions } from "./api";

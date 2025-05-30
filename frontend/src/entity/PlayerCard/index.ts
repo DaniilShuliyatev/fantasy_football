@@ -1,2 +1,1 @@
-export { PlayerCard } from "./ui";
-export { playerMockData } from "./model";
+export { PlayerCard, PlayerCardsList } from "./ui";

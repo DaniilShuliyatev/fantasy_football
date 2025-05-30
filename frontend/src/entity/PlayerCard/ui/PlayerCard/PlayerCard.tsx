@@ -12,7 +12,7 @@ import {
   CustomCardContent,
 } from "./PlayerCard.style";
 import type { FC } from "react";
-import type { Player } from "../model";
+import type { Player } from "../../model";
 import {
   CustomTable,
   getDisplayString,
@@ -22,7 +22,7 @@ import {
   playerGoalsHeaderCells,
   playerPassesHeaderCells,
   playerPenaltyHeaderCells,
-} from "../../../shared";
+} from "../../../../shared";
 
 type PlayerCardProps = {
   playerData: Player;
@@ -43,7 +43,9 @@ export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
   const gamesBodyCells = [
     getDisplayString(playerData.games.appearances),
     getDisplayString(playerData.games.position),
-    getDisplayString(playerData.games.rating),
+    getDisplayString(
+      playerData.games.rating ? playerData.games.rating.toFixed(1) : null,
+    ),
     playerData.games.captain ? "Yes" : "No",
   ];
 
@@ -65,6 +67,14 @@ export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
     getDisplayString(playerData.penalty.saved),
   ];
 
+  const birthDate = new Date(getDisplayString(playerData.player.birth.date));
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedBornDate = birthDate.toLocaleDateString("en-Us", dateOptions);
+
   return (
     <CustomCard variant="outlined">
       <CustomCardContent>
@@ -77,7 +87,7 @@ export const PlayerCard: FC<PlayerCardProps> = ({ playerData }) => {
               </MainText>
               <PrimaryText>Age: {playerData.player.age}</PrimaryText>
               <SecondaryText>
-                Born: {playerData.player.birth} <br />
+                Born: {formattedBornDate} <br />
                 Height: {playerData.player.height} <br />
                 Weight: {playerData.player.weight}
               </SecondaryText>

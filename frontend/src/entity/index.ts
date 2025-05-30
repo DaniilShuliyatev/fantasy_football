@@ -1,3 +1,8 @@
-export { TeamCardStatistics, TeamCard, teamMockedData } from "./TeamCard";
-export { PlayerCard } from "./PlayerCard";
-export { playerMockData } from "./PlayerCard";
+export {
+  TeamCardStatistics,
+  TeamCard,
+  type Team,
+  TeamCardStatisticsList,
+  TeamCardsList,
+} from "./TeamCard";
+export { PlayerCard, PlayerCardsList } from "./PlayerCard";

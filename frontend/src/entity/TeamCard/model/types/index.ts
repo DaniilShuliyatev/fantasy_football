@@ -1,1 +1,1 @@
-export type { Team } from "./team";
+export type { Team, getTeamResponse } from "./team";
