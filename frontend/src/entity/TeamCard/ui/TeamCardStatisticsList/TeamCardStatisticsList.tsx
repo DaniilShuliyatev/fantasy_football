@@ -26,7 +26,9 @@ export const TeamCardStatisticsList: FC = () => {
   });
 
   if (error) {
-    return <Typography>{error.message}</Typography>;
+    return (
+      <Typography color="error">Error when trying to get teams data</Typography>
+    );
   }
 
   if (isPending) {

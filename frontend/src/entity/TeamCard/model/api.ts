@@ -19,7 +19,7 @@ export const getTeamsByYear = async ({
 
     return response.data;
   } catch (e) {
-    console.error("Error when try to fetch teams by year:", e);
+    throw new Error("Error when try to fetch teams by year");
   }
 };
 

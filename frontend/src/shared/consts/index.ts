@@ -13,3 +13,4 @@ export {
   TEAM_STATISTICS_CARDS_PER_PAGE,
   PLAYER_CARDS_PER_PAGE,
 } from "./perPageParam";
+export { playerPositionsOrder } from "./playerPositionsOrder";
