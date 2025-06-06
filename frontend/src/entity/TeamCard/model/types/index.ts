@@ -1,1 +1,6 @@
-export type { Team, getTeamResponse } from "./team";
+export {
+  type Team,
+  type getTeamResponse,
+  type Country,
+  CountrySchema,
+} from "./team";

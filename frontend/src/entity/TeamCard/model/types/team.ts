@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const CountrySchema = z.object({
+export const CountrySchema = z.object({
   name: z.string(),
   code: z.string(),
   flag: z.string().url(),
@@ -51,3 +51,4 @@ export const TeamWithStatsResponseSchema = z.object({
 
 export type Team = z.infer<typeof TeamWithStatsSchema>;
 export type getTeamResponse = z.infer<typeof TeamWithStatsResponseSchema>;
+export type Country = z.infer<typeof CountrySchema>;

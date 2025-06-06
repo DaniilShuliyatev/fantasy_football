@@ -27,7 +27,11 @@ export const PlayerCardsList: FC = () => {
   });
 
   if (error) {
-    return <Typography>{error.message}</Typography>;
+    return (
+      <Typography color="error">
+        Error when trying to get player data
+      </Typography>
+    );
   }
 
   if (isPending) {

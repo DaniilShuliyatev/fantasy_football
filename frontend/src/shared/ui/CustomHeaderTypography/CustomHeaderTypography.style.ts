@@ -1,6 +1,6 @@
-import { styled, Typography } from "@mui/material";
+import { styled, Typography, type TypographyProps } from "@mui/material";
 
-export const CustomTypography = styled(Typography)(() => ({
+export const CustomTypography = styled(Typography)<TypographyProps>(() => ({
   "&&": {
     fontSize: "20px",
     lineHeight: "32px",

@@ -4,4 +4,4 @@ export {
   TeamCardStatisticsList,
   TeamCardsList,
 } from "./ui";
-export type { Team } from "./model";
+export { type Team, type Country, CountrySchema } from "./model";

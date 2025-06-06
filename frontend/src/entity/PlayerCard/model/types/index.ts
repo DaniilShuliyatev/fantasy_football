@@ -1,1 +1,1 @@
-export type { Player, getPlayerResponse } from "./player";
+export type { Player, getPlayerResponse, PlayerPositions } from "./player";

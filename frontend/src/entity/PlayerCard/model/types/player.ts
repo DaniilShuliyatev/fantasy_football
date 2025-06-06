@@ -83,5 +83,11 @@ export const GetPlayersByYearResponseSchema = z.object({
   data: z.array(PlayerWithStatsSchema),
 });
 
+export type PlayerPositions =
+  | "Goalkeeper"
+  | "Defender"
+  | "Midfielder"
+  | "Attacker";
+
 export type Player = z.infer<typeof PlayerWithStatsSchema>;
 export type getPlayerResponse = z.infer<typeof GetPlayersByYearResponseSchema>;

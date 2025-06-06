@@ -4,5 +4,13 @@ export {
   type Team,
   TeamCardStatisticsList,
   TeamCardsList,
+  type Country,
+  CountrySchema,
 } from "./TeamCard";
-export { PlayerCard, PlayerCardsList } from "./PlayerCard";
+export {
+  PlayerCard,
+  PlayerCardsList,
+  getPlayersByYear,
+  type PlayerPositions,
+  type Player,
+} from "./PlayerCard";

@@ -3,8 +3,10 @@ import { CustomTypography } from "./CustomHeaderTypography.style";
 
 type CustomHeaderTypographyProps = {
   title: string;
+  color?: string;
 };
 
 export const CustomHeaderTypography: FC<CustomHeaderTypographyProps> = ({
   title,
-}) => <CustomTypography>{title}</CustomTypography>;
+  ...otherProps
+}) => <CustomTypography {...otherProps}>{title}</CustomTypography>;
